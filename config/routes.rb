@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
   
-  get 'welcome/index'
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+}
+
+  get 'home/index'
 
   resources :articles do 
     resources :comments
@@ -8,7 +14,7 @@ Rails.application.routes.draw do
 
 
   
-  root 'welcome#index'
+  root to: 'home#index'
 
 
 
