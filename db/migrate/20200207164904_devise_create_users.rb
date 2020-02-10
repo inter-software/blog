@@ -44,7 +44,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     # Initialize first account:
       User.create! do |z|
         z.email     = 'test@test.com'
-        z.password    = '123'
+        z.password    = '123456'
       end
   end
 end
