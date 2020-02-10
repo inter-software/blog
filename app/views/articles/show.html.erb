@@ -1,26 +1,53 @@
-<p>
-<strong>Title:</strong>
-<%= @article.title %>
-</p>
+<div class="card">
+  <div class="card-body">
+        
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading"></h4>
+        <p>
+            <strong>Title:</strong>
+            <%= @article.title %>
+        </p>
+        <p>
+            <strong>Text:</strong>
+            <%= @article.text %>
+        </p>
+    </div>
+    
+    <div class="card">
+    <div class="card-header">
+        <h2>Comments</h2>
+    </div>
+    <div class="card-body">
 
-<p>
-<strong>Text:</strong>
-<%= @article.text %>
-</p>
+        <div class="alert alert-info" role="alert">
+            <h4 class="alert-heading"></h4>
+            <% @article.comments.each do |comment| %>
+
+            <%= render @article.comments %>
+            
+            <% end %>
+           
+        </div>
+        
+
+        <h2>Add a comment:</h2>
+    
+        <%= render 'comments/form' %>
+    
+        <%= link_to 'Edit', edit_article_path(@article), :class => 'btn btn-outline-primary btn-sm' %> |
+        <%= link_to 'Back', articles_path, :class => 'btn btn-outline-success btn-sm' %>
+    </div>
+    </div>
+
+       
+
+        
+    
+            
+        
+    </div>
+</div>
 
 
-<h2>Comments</h2>
-<% @article.comments.each do |comment| %>
-
-<%= render @article.comments %>
-
-<% end %>
-
-<h2>Add a comment:</h2>
-
-<%= render 'comments/form' %>
-
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
 
 

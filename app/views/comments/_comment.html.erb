@@ -1,18 +1,25 @@
-<p>
-  <strong>Commenter:</strong>
-  <%= comment.commenter %>
-</p>
+<div class="container">
+  <div class="row">
+      <div class="col">
+      <p>
+        <strong>Commenter:</strong>
+        <%= comment.commenter %>
+      </p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
+    <p>
+      <strong>Comment:</strong>
+      <%= comment.body %>
+    </p>
+      </div>
+      <div class="col">
+      <p>
+        <%= #/articles/:article_id/comments/:id
+          link_to 'Destroy Comment', [comment.article, comment], 
+          method: :delete,
+          data: {confirm: 'Are you Sure?'}, :class => 'btn btn-outline-danger btn-sm' %>
+      </p>
+      </div>
+  </div>
+</div>
 
-<p>
 
-    <%= #/articles/:article_id/comments/:id
-        link_to 'Destroy Comment', [comment.article, comment], 
-        method: :delete,
-        data: {confirm: 'Are you Sure?'} %>
-
-</p>
