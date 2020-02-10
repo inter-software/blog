@@ -30,6 +30,7 @@ class ArticlesController < ApplicationController
         # y recibe como parametro, en el metodo params,
         # guardar en un array los parametros o campos, del recurso articulos.     
         @article = Article.new(article_params)
+        
 
         # Guardar el Modelo y lo guarda en BD, 
         # Retorna un Valor Booleano (True ó False), si se guardo correctamente o no.

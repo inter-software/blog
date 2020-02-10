@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-git_source(:github) { |repo| "https://github.com/#{repo}.git" }
+git_source(:github) { |repo| "https://github.com/inter-software/#{repo}.git" }
 
 ruby '2.7.0'
 
@@ -54,5 +54,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
-
 
