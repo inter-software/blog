@@ -42,9 +42,9 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     # add_index :users, :unlock_token,         unique: true
 
     # Initialize first account:
-      User.create! do |z|
-        z.email     = 'test@test.com'
-        z.password    = '123456'
-      end
+    User.create! do |z|
+      z.email     = 'test@test.com'
+      z.password    = '123456'
+    end
   end
 end
