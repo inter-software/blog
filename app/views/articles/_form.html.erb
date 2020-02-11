@@ -1,5 +1,5 @@
 
-    <%= form_with(model: @article, local: true) do |form| %>
+   <%= simple_form_for @article, url: articles_path do |form| %>
  
       <% if @article.errors.any? %>
         <div id="error_explanation">
@@ -26,8 +26,11 @@
       </p>
 
       <p>
-        <%= form.text_field :categories_ids, as: :select, collection: Category.order(:name), 
-          label_method: :name, input_html: {multiple: true}, :class => 'form-control' %>
+      
+
+       <%= form.input :category_ids, as: :select, collection: Category.order(:name), 
+          label_method: :name, input_html: {multiple: true} %> 
+        
           
       </p>
      

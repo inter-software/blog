@@ -62,3 +62,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-chosen'
 end
 
+# For form management
+gem 'simple_form'
