@@ -1,2 +1,0 @@
-class TypeCategory < ApplicationRecord
-end

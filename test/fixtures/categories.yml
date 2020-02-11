@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  public: false
 
 two:
   name: MyString
-  public: false

@@ -11,6 +11,7 @@
 
 #Datos por defecto, en Categories TypeCategory
 
+=begin 
 TypeCategory.create! do |t|
   t.name = 'Ciencia Ficción'
   t.public = 1
@@ -35,3 +36,15 @@ TypeCategory.create! do |t|
   t.name = 'Drama'
   t.public = 1
 end
+=end
+
+
+Category.create(name: "Comedia")
+
+Category.create(name: "Dramaq")
+
+Category.create(name: "Documentales")
+
+Category.create(name: "Aventura")
+
+Category.create(name: "Ciencia Ficción")

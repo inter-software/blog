@@ -4,11 +4,9 @@
   <head>
     <title>Helloworld</title>
     <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
+    <%= csp_meta_tag %>   
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
 
   <body>
@@ -40,6 +38,8 @@
       <%= link_to 'Articles', new_article_path, :class => 'dropdown-item' %>
       
       <div class="dropdown-divider"></div>
+
+      <%= link_to 'Categories', new_category_path, :class => 'dropdown-item' %>
       
     </div>
   </li>
@@ -51,6 +51,15 @@
 </nav>
 
     <%= yield %>
+
+    <script>
+      $(document).on('ready page:load', function () {
+        $('#article_categories_ids').chosen({
+          allow_single_deselect: true,
+          width: '100%'
+        })
+      });
+    </script>
 
   </body>
 </html>

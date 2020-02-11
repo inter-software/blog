@@ -57,3 +57,8 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 
 gem 'pg'
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.3.3'
+  gem 'rails-assets-chosen'
+end
+

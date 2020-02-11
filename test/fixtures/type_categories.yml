@@ -2,8 +2,10 @@
 
 one:
   name: MyString
-  public: false
+  audience: false
+  category: one
 
 two:
   name: MyString
-  public: false
+  audience: false
+  category: two

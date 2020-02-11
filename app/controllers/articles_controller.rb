@@ -6,7 +6,7 @@ class ArticlesController < ApplicationController
  
 
     def index
-        @article = Article.all
+        params[:category] ?  @articles = Article.category_with(params[:category]) : @article = Article.all      
     end
    
     def show
@@ -69,7 +69,7 @@ class ArticlesController < ApplicationController
 
     private
         def article_params
-            params.require(:article).permit(:title, :text)
+            params.require(:article).permit(:title, :text, :category_list, :category, { categories_ids: [] }, :categories_ids)
         end
 
 
