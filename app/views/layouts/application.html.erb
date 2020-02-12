@@ -6,7 +6,8 @@
         <%= csrf_meta_tags %>
         <%= csp_meta_tag %>   
         <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-        <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application',  'data-turbolinks-track': 'reload' %>
+        
     </head>
 
   <body>
@@ -43,24 +44,20 @@
       
     </div>
   </li>
-      
-     
+        
     </ul>
-  
   </div>
 </nav>
-
     <%= yield %>
-
-    <script>
-      $(document).on('ready page:load', function () {
-        $('#category_ids').chosen({
-          allow_single_deselect: true,
-          width: '100%'
-        })
-      });
-    </script>
-
   </body>
 </html>
 </div>
+
+<script>
+    $(document).on('ready page:load', function () {
+        $('#article_categories_ids').chosen({
+            allow_single_deselect: true,
+            width: '100%'
+        })
+    });
+</script>

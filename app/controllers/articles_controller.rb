@@ -5,8 +5,8 @@ class ArticlesController < ApplicationController
     #except: [:index, :show] 
  
 
-    def index
-        params[:category] ?  @articles = Article.category_with(params[:category]) : @article = Article.all      
+    def index  
+        params[:category] ? @articles = Article.category_with(params[:category]) : @articles = Article.all
     end
    
     def show
@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
             
         else
             # render, instancia de redirect_to
-            render 'new' #la variable de instcia @article, es pasada a la vista new
+            render :new #la variable de instcia @article, es pasada a la vista new
         end
         
         
@@ -70,7 +70,8 @@ class ArticlesController < ApplicationController
     private
 
         def article_params
-            params.require(:article).permit(:title, :text, :category_list, :categories, { category: [] }, :category)
+            params.require(:article).permit(:title, :text, :category_list, :category, 
+                { Category_ids: [] }, :Category_ids)
         end
 
 

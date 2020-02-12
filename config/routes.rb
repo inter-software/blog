@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  get 'categories/:category', to: 'articles#index', as: :tag
+  get 'categories/:category_id', to: 'articles#index', as: :category
 
   resources :articles do 
     resources :comments

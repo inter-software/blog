@@ -4,10 +4,12 @@ class Article < ApplicationRecord
     # en donde a  eliminar el padre (Article) se elimina de igual forma el hijo (Comment)
     has_many :comments, dependent: :destroy
 
-    has_and_belongs_to_many :categories
+    has_and_belongs_to_many :categories #Relacion Many-to-Many a categorias
     
     # estamos validando un campo, para el title que sea de 5 caracteres (Tamaño)
     validates :title, presence: true, length: { minimum: 5 }
+
+    validates :text, presence: true, length: { minimum: 100 }
 
 
     def self.category_with(name)
@@ -15,7 +17,7 @@ class Article < ApplicationRecord
     end
 
     def self.category_counts
-        Category.select('categories.*, count(categories.id) as count').joins(:categories).group('categories.id')
+        Category.select('categories.*, count(categories.Category_id) as count').joins(:categories).group('categories.Category_id')
     end
 
     def category_list

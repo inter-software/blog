@@ -16,6 +16,11 @@ gem 'webpacker', '~> 4.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
+# Use jquery as the JavaScript library
+gem 'jquery-rails'
+
+
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -55,12 +60,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'devise', '~> 4.7', '>= 4.7.1'
 
+#Importamos la gema de postgres
 gem 'pg'
 
 source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.3.3'
+  gem 'rails-assets-tether', '~> 1.1', '>= 1.1.1' 
+  # add the line below
   gem 'rails-assets-chosen'
 end
-
-# For form management
-gem 'simple_form'
