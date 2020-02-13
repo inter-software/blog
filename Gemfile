@@ -20,7 +20,6 @@ gem 'turbolinks', '~> 5'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
@@ -63,8 +62,4 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 #Importamos la gema de postgres
 gem 'pg'
 
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '~> 1.1', '>= 1.1.1' 
-  # add the line below
-  gem 'rails-assets-chosen'
-end
+gem 'chosen-rails'

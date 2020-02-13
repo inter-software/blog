@@ -26,8 +26,7 @@
       </p>
 
       <p>
-      
-      <%= form.collection_select(:categories_ids, Category.order(:name), :id, :name, {},{multiple: true}) %>           
+        <%= form.collection_select :categories_ids, Category.order(:name).all, :id, :name, {},{multiple: true} %>                
       </p>
      
       <p>
@@ -37,5 +36,9 @@
     <% end %>
     
     </p>
-   
+
+
+
+       
+    
   
