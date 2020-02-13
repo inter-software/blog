@@ -63,3 +63,5 @@ gem 'devise', '~> 4.7', '>= 4.7.1'
 gem 'pg'
 
 gem 'chosen-rails'
+
+gem 'paperclip', '~> 6.1'

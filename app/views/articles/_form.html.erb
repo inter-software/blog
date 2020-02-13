@@ -25,10 +25,7 @@
         <%= form.text_area :text, :class => 'form-control' %>
       </p>
 
-      <p>
-        <%= form.collection_select :categories_ids, Category.order(:name).all, :id, :name, {},{multiple: true} %>                
-      </p>
-     
+          
       <p>
         <%= form.submit 'Guardar', :class => 'btn btn-outline-primary' %>
       </p>
