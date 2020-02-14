@@ -25,15 +25,19 @@
         <%= form.text_area :text, :class => 'form-control' %>
       </p>
 
+      <div>
+        <%= form.label :attachments %>
+        <%= form.file_field :attachments, multiple: true, :class => 'btn btn-outline-secondary' %>
+      </div>
           
       <p>
         <%= form.submit 'Guardar', :class => 'btn btn-outline-primary' %>
       </p>
+
+      
      
     <% end %>
     
-    </p>
-
 
 
        

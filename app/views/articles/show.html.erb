@@ -12,9 +12,7 @@
             <%= @article.text %>
         </p>
 
-        <p>
-        <small>Categories: <%= raw @article.categories.map(&:name).map { |t| link_to t, category_path(t) }.join(', ') %></small>
-        </p>
+        
     </div>
     
     <div class="card">
@@ -44,7 +42,20 @@
     </div>
 
        
-
+    <table class="table table-bordered">
+        <tbody>
+            <% if @article.attachments? %>
+                <% @article.attachments.each do |attachment| %>
+                    <tr>
+                        <td>
+                            <%= link_to(image_tag(attachment.thumb.url, alt: 'Image'), 
+                                attachment.url, target: '_blank') %>
+                        </td>          
+                    </tr>      
+                <% end %>
+            <% end %>
+        </tbody>
+    </table>       
         
     
             
