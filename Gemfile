@@ -64,4 +64,8 @@ gem 'pg'
 
 gem 'chosen-rails'
 
-gem 'paperclip', '~> 6.1'
+gem 'carrierwave', '~> 2.0', '>= 2.0.2'
+
+gem 'mini_magick'
+
+gem 'file_validators'
