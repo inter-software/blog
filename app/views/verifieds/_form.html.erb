@@ -15,8 +15,15 @@
     <% end %>
    
     <p>
-      <%= form.label :title %><br>
-      <%= form.text_field :title, :class => 'form-control' %>
+      <%= form.label :article_id %><br>
+      <%= f.collection_select :article_id, Article.all, :id, :title, class: "form-control", 
+                prompt: "Seleccione Articulo" %>
+    </p>
+
+    <p>
+        <%= form.label :user_id %><br>
+        <%= f.collection_select :user_id, User.all, :id, :title, class: "form-control", 
+                prompt: "Seleccione Usuario" %>
     </p>
    
     <p>
