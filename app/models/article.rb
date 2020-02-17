@@ -16,8 +16,7 @@ class Article < ApplicationRecord
 
     validates :text, presence: true, length: { minimum: 10 }
 
-    validates :attachment, file_content_type: { allow: ['image/jpeg', 'image/png', 'image/jpg', 'text/pdf'],
-        message: 'Attached File Only Allows images png, jpeg, jpg And Documents in pdf'}
+   
 
     def self.category_with(name)
         Category.find_by!(name: name).articles
