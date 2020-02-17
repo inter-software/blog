@@ -14,9 +14,14 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :categories do 
-    resources :type_categories
+  resources :verifieds do
+    resources :users
+    resources :articles
   end
+
+ 
+
+
 
 
   

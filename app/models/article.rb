@@ -5,6 +5,9 @@ class Article < ApplicationRecord
     has_many :comments, dependent: :destroy
 
     has_and_belongs_to_many :categories #Relacion Many-to-Many a categorias
+
+    has_many :verifieds
+    has_many :users, through: :verifieds
     
     #Upload Attachements 
     mount_uploaders :attachments, ImageUploader
