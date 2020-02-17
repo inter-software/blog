@@ -1,68 +1,55 @@
+
+
 <div class="card">
   <div class="card-body">
         
-    <div class="alert alert-success" role="alert">
-        <h4 class="alert-heading"></h4>
         <p>
             <strong>Title:</strong>
             <%= @article.title %>
         </p>
+        
         <p>
             <strong>Text:</strong>
             <%= @article.text %>
         </p>
 
-        
-    </div>
-    
-    <div class="card">
-    <div class="card-header">
-        <h2>Comments <%= @article.comments.size %></h2>
-    </div>
-    <div class="card-body">
-
-        <div class="alert alert-info" role="alert">
-            <h4 class="alert-heading"></h4>
-            <% @article.comments.each do |comment| %>
-
-            <%= render @article.comments %>
-            
-            <% end %>
+        <p>
            
-        </div>
-        
 
-        <h2>Add a comment:</h2>
-    
-        <%= render 'comments/form' %>
-    
-        <%= link_to 'Edit', edit_article_path(@article), :class => 'btn btn-outline-primary btn-sm' %> |
-        <%= link_to 'Back', articles_path, :class => 'btn btn-outline-success btn-sm' %>
-    </div>
-    </div>
-
-       
-    <table class="table table-bordered">
-        <tbody>
+            <ul class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active"></a>
             <% if @article.attachments? %>
-                <% @article.attachments.each do |attachment| %>
-                    <tr>
-                        <td>
-                            <%= link_to(image_tag(attachment.thumb.url, alt: 'Image'), 
-                                attachment.url, target: '_blank') %>
-                        </td>          
-                    </tr>      
-                <% end %>
-            <% end %>
-        </tbody>
-    </table>       
-        
-    
+            <ul>
+              <% @article.attachments.each do |attachment| %>
+                <li>
+                    <%=  link_to(image_tag('~/assets/images/pdf.png',  attachment.url), attachment.url, target: '_blank')%>
+                </li>
+              <% end %>
+            </ul>
+          <% end %>
             
-        
+            </ul>
+        </p>
+  
+    
+        <div class="card">
+            <div class="card-header">
+                <h2>Comments <%= @article.comments.size %></h2>
+            </div>
+            <div class="card-body">
+
+                
+                <h2>Comments</h2>
+                <%= render @article.comments %>
+                
+                <h2>Add a comment:</h2>
+                <%= render 'comments/form' %>
+
+            
+            </div>
+           
+        </div><br>
+        <%= link_to 'Edit', edit_article_path(@article), :class => 'btn btn-outline-primary btn-sm' %> |
+        <%= link_to 'Back', articles_path, :class => 'btn btn-outline-success btn-sm' %>         
     </div>
 </div>
-
-
-
-

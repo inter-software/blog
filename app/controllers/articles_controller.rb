@@ -1,24 +1,24 @@
 class ArticlesController < ApplicationController
-
+    
+    before_action :set_article, only: [:show, :edit, :update]
 
     #http_basic_authenticate_with name: "admin", password: "123", 
     #except: [:index, :show] 
  
 
     def index  
-        params[:category] ? @articles = Article.category_with(params[:category]) : @articles = Article.all
+        #params[:category] ? @articles = Article.category_with(params[:category]) : 
+        @articles = Article.all
     end
    
     def show
-        @article = Article.find(params[:id])
     end
 
     #obtenemos el id de modelo de articulo en BD, id = 7
     def edit
-        # Instancia un nuevo objeto de Article, guardamos en la varialbe instancia  @article,
-
-        @article = Article.find(params[:id])
     end
+
+   
 
     def new
         @article = Article.new
@@ -64,15 +64,23 @@ class ArticlesController < ApplicationController
         @article = Article.find(params[:id])
         @article.destroy
         
-        redirect_to @article
+        redirect_to article_path(@article)
     end
+
+
 
     private
 
         def article_params
-            params.require(:article).permit(:title, :text, :category_list, :category, 
-                { categories_ids: [] }, :categories_ids, attachments: [])
+            params.require(:article).permit(:title, :text, :category_list, :category,  attachments: [])
         end
+
+        def set_article
+            @article = Article.find(params[:id])
+        end
+
+
+    
 
 
 
