@@ -1,13 +1,33 @@
-<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-    <p>
-      <%= form.label :commenter %><br>
-      <%= form.text_field :commenter %>
-    </p>
-    <p>
-      <%= form.label :body %><br>
-      <%= form.text_area :body %>
-    </p>
-    <p>
-      <%= form.submit %>
-    </p>
-    <% end %>
+<%= form_with model: [ @article, @article.comments.build ], local: true do |form| %>
+ 
+ <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">    
+        <%= form.label :commenter %>
+        <%= form.text_field :commenter, :class => 'form-control' %>
+      </th> 
+
+    </tr>
+
+    <tr>
+      <th scope="col">
+        <%= form.label :body %>
+        <%= form.text_area :body, :class => 'form-control' %>
+      </th>
+    </tr>
+    
+    <tr>
+      <th><br>
+          <%= form.submit "Save Comment", :class => 'btn btn-outline-primary btn-sm' %>
+      </th>
+    </tr>
+
+  </thead>
+ 
+</table>
+   
+
+
+<% end %>
+

@@ -1,15 +1,34 @@
 Rails.application.routes.draw do
   
-  get 'welcome/index'
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
+  }
+
+  get 'home/index'
+
+  #get 'categories/:category_id', to: 'articles#index', as: :category
 
   resources :articles do 
     resources :comments
   end
 
+  #resources :categories do
+  #  resources :articles
+  #end
+
+  resources :verifieds do
+    resources :users, only: [:new, :edit]
+    resources :articles, only: [:new, :edit]
+  end
+
+ 
+  root to: 'home#index'
+
+
 
   
-  root 'welcome#index'
-
 
 
 end

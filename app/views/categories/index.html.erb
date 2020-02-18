@@ -1,0 +1,26 @@
+<h1>Listing Categories</h1>
+
+<%= link_to 'Nuevo Type Category', new_category_path %>
+
+<br>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @category.each do |category| %>
+            <tr>
+            <td><%= category.name %></td>
+           
+            <td><%= link_to 'Show', category %></td>
+            <td><%= link_to 'Edit', edit_category_path(category) %></td>
+            <td><%= link_to 'Destroy', category, 
+                method: :delete, data: { confirm: 'Esta seguro?' } %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
+<br>

@@ -1,0 +1,23 @@
+
+
+<div class="jumbotron">
+  <h1 class="display-4">Hello, Welcome My Blog !</h1>
+  <p class="lead"></p>
+  <hr class="my-4">
+
+  <center>
+    <% if user_signed_in? %>
+
+      <%= link_to 'Edit registration', edit_user_registration_path, :class => "btn btn-outline-primary btn-sm" %>
+      <%= link_to 'Logout', destroy_user_session_path, :method => :delete, :class => "btn btn-outline-success btn-sm" %>        
+
+    <% else %>
+
+      <%= link_to 'Register', new_user_registration_path, :class => "btn btn-outline-primary btn-lg" %>
+      <%= link_to 'Login', new_user_session_path, :class => "btn btn-outline-success btn-lg"   %>  
+
+    <% end %>
+    </center>
+</div>
+
+

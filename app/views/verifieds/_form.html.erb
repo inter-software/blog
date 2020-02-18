@@ -1,0 +1,52 @@
+<%= form_with  model: @verified, local: true do |form| %>
+  
+  <% if @verified.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@verified.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @verified.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p>
+      <%= form.label :article_id %><br>
+      <%= 
+            form.collection_select :article_id, Article.order(:title).all, :id, :title, 
+            class: "form-control", 
+            prompt: "Seleccione Articulo" 
+      %>
+    </p>
+
+    <p>
+        <%= form.label :user_id %><br>
+        <%= 
+              form.collection_select :user_id, User.order(:email).all, :id, :email, 
+              class: "form-control", 
+              prompt: "Seleccione Usuario" 
+        %>
+    </p>
+
+    <div>
+      <%= form.label :date %>
+      <%= form.datetime_select :date %>
+    </div>
+   
+    <p>
+      <%= form.label :comment %><br>
+      <%= form.text_area :comment, :class => "form-control" %>
+    </p>
+     
+    <p>
+      <%= form.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>
+    </p>
+
+    
+   
+  <% end %>
+  

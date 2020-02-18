@@ -1,0 +1,23 @@
+
+<p>
+<strong>Articulo:</strong>
+<%= @verified.article.title %>
+</p>
+
+<p>
+<strong>User:</strong>
+<%= @verified.user.email %>
+</p>
+
+<p>
+<strong>Date:</strong>
+<%= @verified.date %>
+</p>
+
+<p>
+<strong>Comment:</strong>
+<%= @verified.comment %>
+</p>
+
+<%= link_to 'Edit', edit_verified_path(@verified) %> |
+<%= link_to 'Back', verifieds_path %>

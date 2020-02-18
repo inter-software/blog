@@ -1,0 +1,93 @@
+                               Prefix Verb   URI Pattern                                                                              Controller#Action
+                     new_user_session GET    /users/sign_in(.:format)                                                                 users/sessions#new
+                         user_session POST   /users/sign_in(.:format)                                                                 users/sessions#create
+                 destroy_user_session DELETE /users/sign_out(.:format)                                                                users/sessions#destroy
+                    new_user_password GET    /users/password/new(.:format)                                                            users/passwords#new
+                   edit_user_password GET    /users/password/edit(.:format)                                                           users/passwords#edit
+                        user_password PATCH  /users/password(.:format)                                                                users/passwords#update
+                                      PUT    /users/password(.:format)                                                                users/passwords#update
+                                      POST   /users/password(.:format)                                                                users/passwords#create
+             cancel_user_registration GET    /users/cancel(.:format)                                                                  users/registrations#cancel
+                new_user_registration GET    /users/sign_up(.:format)                                                                 users/registrations#new
+               edit_user_registration GET    /users/edit(.:format)                                                                    users/registrations#edit
+                    user_registration PATCH  /users(.:format)                                                                         users/registrations#update
+                                      PUT    /users(.:format)                                                                         users/registrations#update
+                                      DELETE /users(.:format)                                                                         users/registrations#destroy
+                                      POST   /users(.:format)                                                                         users/registrations#create
+                           home_index GET    /home/index(.:format)                                                                    home#index
+                     article_comments GET    /articles/:article_id/comments(.:format)                                                 comments#index
+                                      POST   /articles/:article_id/comments(.:format)                                                 comments#create
+                  new_article_comment GET    /articles/:article_id/comments/new(.:format)                                             comments#new
+                 edit_article_comment GET    /articles/:article_id/comments/:id/edit(.:format)                                        comments#edit
+                      article_comment GET    /articles/:article_id/comments/:id(.:format)                                             comments#show
+                                      PATCH  /articles/:article_id/comments/:id(.:format)                                             comments#update
+                                      PUT    /articles/:article_id/comments/:id(.:format)                                             comments#update
+                                      DELETE /articles/:article_id/comments/:id(.:format)                                             comments#destroy
+                             articles GET    /articles(.:format)                                                                      articles#index
+                                      POST   /articles(.:format)                                                                      articles#create
+                          new_article GET    /articles/new(.:format)                                                                  articles#new
+                         edit_article GET    /articles/:id/edit(.:format)                                                             articles#edit
+                              article GET    /articles/:id(.:format)                                                                  articles#show
+                                      PATCH  /articles/:id(.:format)                                                                  articles#update
+                                      PUT    /articles/:id(.:format)                                                                  articles#update
+                                      DELETE /articles/:id(.:format)                                                                  articles#destroy
+                    category_articles GET    /categories/:category_id/articles(.:format)                                              articles#index
+                                      POST   /categories/:category_id/articles(.:format)                                              articles#create
+                 new_category_article GET    /categories/:category_id/articles/new(.:format)                                          articles#new
+                edit_category_article GET    /categories/:category_id/articles/:id/edit(.:format)                                     articles#edit
+                     category_article GET    /categories/:category_id/articles/:id(.:format)                                          articles#show
+                                      PATCH  /categories/:category_id/articles/:id(.:format)                                          articles#update
+                                      PUT    /categories/:category_id/articles/:id(.:format)                                          articles#update
+                                      DELETE /categories/:category_id/articles/:id(.:format)                                          articles#destroy
+                           categories GET    /categories(.:format)                                                                    categories#index
+                                      POST   /categories(.:format)                                                                    categories#create
+                         new_category GET    /categories/new(.:format)                                                                categories#new
+                        edit_category GET    /categories/:id/edit(.:format)                                                           categories#edit
+                             category GET    /categories/:id(.:format)                                                                categories#show
+                                      PATCH  /categories/:id(.:format)                                                                categories#update
+                                      PUT    /categories/:id(.:format)                                                                categories#update
+                                      DELETE /categories/:id(.:format)                                                                categories#destroy
+                       verified_users GET    /verifieds/:verified_id/users(.:format)                                                  users#index
+                                      POST   /verifieds/:verified_id/users(.:format)                                                  users#create
+                    new_verified_user GET    /verifieds/:verified_id/users/new(.:format)                                              users#new
+                   edit_verified_user GET    /verifieds/:verified_id/users/:id/edit(.:format)                                         users#edit
+                        verified_user GET    /verifieds/:verified_id/users/:id(.:format)                                              users#show
+                                      PATCH  /verifieds/:verified_id/users/:id(.:format)                                              users#update
+                                      PUT    /verifieds/:verified_id/users/:id(.:format)                                              users#update
+                                      DELETE /verifieds/:verified_id/users/:id(.:format)                                              users#destroy
+                    verified_articles GET    /verifieds/:verified_id/articles(.:format)                                               articles#index
+                                      POST   /verifieds/:verified_id/articles(.:format)                                               articles#create
+                 new_verified_article GET    /verifieds/:verified_id/articles/new(.:format)                                           articles#new
+                edit_verified_article GET    /verifieds/:verified_id/articles/:id/edit(.:format)                                      articles#edit
+                     verified_article GET    /verifieds/:verified_id/articles/:id(.:format)                                           articles#show
+                                      PATCH  /verifieds/:verified_id/articles/:id(.:format)                                           articles#update
+                                      PUT    /verifieds/:verified_id/articles/:id(.:format)                                           articles#update
+                                      DELETE /verifieds/:verified_id/articles/:id(.:format)                                           articles#destroy
+                            verifieds GET    /verifieds(.:format)                                                                     verifieds#index
+                                      POST   /verifieds(.:format)                                                                     verifieds#create
+                         new_verified GET    /verifieds/new(.:format)                                                                 verifieds#new
+                        edit_verified GET    /verifieds/:id/edit(.:format)                                                            verifieds#edit
+                             verified GET    /verifieds/:id(.:format)                                                                 verifieds#show
+                                      PATCH  /verifieds/:id(.:format)                                                                 verifieds#update
+                                      PUT    /verifieds/:id(.:format)                                                                 verifieds#update
+                                      DELETE /verifieds/:id(.:format)                                                                 verifieds#destroy
+                                 root GET    /                                                                                        home#index
+        rails_mandrill_inbound_emails POST   /rails/action_mailbox/mandrill/inbound_emails(.:format)                                  action_mailbox/ingresses/mandrill/inbound_emails#create
+        rails_postmark_inbound_emails POST   /rails/action_mailbox/postmark/inbound_emails(.:format)                                  action_mailbox/ingresses/postmark/inbound_emails#create
+           rails_relay_inbound_emails POST   /rails/action_mailbox/relay/inbound_emails(.:format)                                     action_mailbox/ingresses/relay/inbound_emails#create
+        rails_sendgrid_inbound_emails POST   /rails/action_mailbox/sendgrid/inbound_emails(.:format)                                  action_mailbox/ingresses/sendgrid/inbound_emails#create
+         rails_mailgun_inbound_emails POST   /rails/action_mailbox/mailgun/inbound_emails/mime(.:format)                              action_mailbox/ingresses/mailgun/inbound_emails#create
+       rails_conductor_inbound_emails GET    /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#index
+                                      POST   /rails/conductor/action_mailbox/inbound_emails(.:format)                                 rails/conductor/action_mailbox/inbound_emails#create
+    new_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/new(.:format)                             rails/conductor/action_mailbox/inbound_emails#new
+   edit_rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id/edit(.:format)                        rails/conductor/action_mailbox/inbound_emails#edit
+        rails_conductor_inbound_email GET    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#show
+                                      PATCH  /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      PUT    /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#update
+                                      DELETE /rails/conductor/action_mailbox/inbound_emails/:id(.:format)                             rails/conductor/action_mailbox/inbound_emails#destroy
+rails_conductor_inbound_email_reroute POST   /rails/conductor/action_mailbox/:inbound_email_id/reroute(.:format)                      rails/conductor/action_mailbox/reroutes#create
+                   rails_service_blob GET    /rails/active_storage/blobs/:signed_id/*filename(.:format)                               active_storage/blobs#show
+            rails_blob_representation GET    /rails/active_storage/representations/:signed_blob_id/:variation_key/*filename(.:format) active_storage/representations#show
+                   rails_disk_service GET    /rails/active_storage/disk/:encoded_key/*filename(.:format)                              active_storage/disk#show
+            update_rails_disk_service PUT    /rails/active_storage/disk/:encoded_token(.:format)                                      active_storage/disk#update
+                 rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create

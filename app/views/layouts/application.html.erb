@@ -1,19 +1,57 @@
+<div class="container">
 <!DOCTYPE html>
 <html>
   <head>
     <title>Helloworld</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-  </head>
+        <%= csrf_meta_tags %>
+        <%= csp_meta_tag %>   
+        <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+        <%= javascript_pack_tag 'application',  'data-turbolinks-suppress-warning': 'reload' %>       
+    </head>
 
   <body>
 
-  
+  <% unless flash.empty? %>
+   <script type="text/javascript">
+      <% flash.each do |f| %>
+    <% type = f[0].to_s.gsub('alert', 'error').gsub('notice', 'info') %>
+   	 toastr['<%= type %>']('<%= f[1] %>');
+   <% end %>
+   </script>
+<% end %>
 
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Admin
+    </a>
+    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+      <%= link_to 'Articles', new_article_path, :class => 'dropdown-item' %>
+
+
+      <div class="dropdown-divider">Verified</div>
+
+      <%= link_to 'Verified Articles', new_verified_path, :class => 'dropdown-item' %>
+      
+    </div>
+  </li>
+        
+    </ul>
+  </div>
+</nav>
     <%= yield %>
   </body>
 </html>
+</div>
+
+
+

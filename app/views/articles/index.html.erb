@@ -1,31 +1,63 @@
-
-
-
 <div class = "container">
 
-<h1>Listing Articles</h1>
+<center><h1>Listing Articles</h1></center>
  
+<%= form_tag articles_path, :method => 'get' do %>
+<% content_tag :label do %>
+Search Article:
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Buscar", :name => nil, :class => 'btn btn-outline-info btn-sm' %>
+<% end %>
+<% end %>
+
 <%= link_to 'New article', new_article_path, :class => 'btn btn-outline-primary' %>
 
+<br><br>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
+<div class="row">
+  <% @articles.each do |article| %>
+    <div class="col-sm">
+  <div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <p class="card-text">
+
+      <b>Title: </b> <%= article.title %>
+      <br>
+      <b>Message: </b> <%= article.text %>
     
-  </tr>
- 
-  <% @article.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article), :class => 'btn btn-outline-info' %></td>
-      <td><%= link_to 'Edit', edit_article_path(article) , :class => 'btn btn-outline-warning' %></td>
-      <td><%= link_to 'Destroy', article_path(article), 
-            method: :delete,
-            data: { confirm: 'Are you sure?' },
-            :class => 'btn btn-outline-danger' %></td>
-    </tr>
-  <% end %>
-</table>
+      <br><br>
+      <%= link_to 'Show', article_path(article), :class => 'btn btn-outline-primary' %>
+      
+      <%= link_to 'Edit',  edit_article_path(article), :class => 'btn btn-outline-warning' %>
+      
+      <%= 
+          link_to 'Destroy', article_path(article),
+          method: :delete,  :class => 'btn btn-outline-danger',
+          data: { confirm: 'Are you sure?' } 
+      %>
+        
+    </p>
+    
+  </div>
 </div>
+<br>
+</div>
+<% end %>
+</div>
+
+
+<%= will_paginate @articles, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente&raquo;', :class => 'pagination' %>
+
+<br>
+
+<button type="button" class="btn btn-primary">
+  Articles: <span class="badge badge-light"><%= @articles.count %></span>
+  <span class="sr-only"></span>
+</button>
+</div>
+
+
+
+
+
