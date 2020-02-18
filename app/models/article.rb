@@ -39,7 +39,10 @@ class Article < ApplicationRecord
         end
     end
 
-
+    def self.search(search, page)
+        where(['upper(title) like ?',
+            "%#{search}%".upcase]).paginate(page: page, per_page: 5).order("title")
+    end
 
  
 

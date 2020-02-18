@@ -2,6 +2,14 @@
 
 <center><h1>Listing Articles</h1></center>
  
+<%= form_tag articles_path, :method => 'get' do %>
+<% content_tag :label do %>
+Search Article:
+<%= text_field_tag :search, params[:search] %>
+<%= submit_tag "Buscar", :name => nil, :class => 'btn btn-outline-info btn-sm' %>
+<% end %>
+<% end %>
+
 <%= link_to 'New article', new_article_path, :class => 'btn btn-outline-primary' %>
 
 <br><br>
@@ -28,8 +36,7 @@
           method: :delete,  :class => 'btn btn-outline-danger',
           data: { confirm: 'Are you sure?' } 
       %>
-      
-      
+        
     </p>
     
   </div>
@@ -39,6 +46,15 @@
 <% end %>
 </div>
 
+
+<%= will_paginate @articles, :previous_label => '&laquo; Anterior', :next_label => 'Siguiente&raquo;', :class => 'pagination' %>
+
+<br>
+
+<button type="button" class="btn btn-primary">
+  Articles: <span class="badge badge-light"><%= @articles.count %></span>
+  <span class="sr-only"></span>
+</button>
 </div>
 
 

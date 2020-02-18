@@ -8,7 +8,9 @@ class ArticlesController < ApplicationController
 
     def index  
         #params[:category] ? @articles = Article.category_with(params[:category]) : 
+        @articles = Article.search(params[:search], params[:page])
         @articles = Article.all
+        @articles = Article.paginate(page: params[:page])
     end
    
     def show

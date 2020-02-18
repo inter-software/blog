@@ -69,3 +69,5 @@ gem 'carrierwave', '~> 2.0', '>= 2.0.2'
 gem 'mini_magick'
 
 gem 'file_validators'
+
+gem 'will_paginate', '~> 3.2', '>= 3.2.1'

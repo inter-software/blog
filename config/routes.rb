@@ -19,17 +19,14 @@ Rails.application.routes.draw do
   end
 
   resources :verifieds do
-    resources :users
-    resources :articles
+    resources :users, only: [:new, :edit]
+    resources :articles, only: [:new, :edit]
   end
 
  
-
-
-
-
-  
   root to: 'home#index'
+
+
 
   
 

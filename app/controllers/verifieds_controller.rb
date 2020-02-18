@@ -1,17 +1,16 @@
 class VerifiedsController < ApplicationController
 
-    #before_action :set_verified, only: [:show, :edit, :update]
+    before_action :set_verified, only: [:show, :edit, :update, :destroy]
+    
+    before_action :set_all_verified, only: [:index]
 
-    def index
-        @verifieds = Verified.all
+    def index       
     end
 
     def show
-        @verified = Verified.find(params[:id])
     end
 
     def edit
-        @verified = Verified.find(params[:id])
     end
 
     def new 
@@ -28,9 +27,7 @@ class VerifiedsController < ApplicationController
         end
     end
 
-    def update
-        @verified = Verified.find(params[:id])
-
+    def update   
         if @verified.update(verified_params)
             redirect_to @verified
         else
@@ -39,7 +36,7 @@ class VerifiedsController < ApplicationController
     end
 
     def destroy
-        @verified = Verified.find(params[:id])
+
         @verified.destroy
      
         redirect_to verified_path
@@ -50,5 +47,13 @@ class VerifiedsController < ApplicationController
 
         def verified_params
             params.require(:verified).permit(:article_id, :user_id, :date, :comment)
+        end
+
+        def set_verified
+            @verified = Verified.find(params[:id])
+        end
+
+        def set_all_verified
+            @verifieds = Verified.all
         end
 end
