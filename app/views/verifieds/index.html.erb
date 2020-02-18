@@ -1,18 +1,29 @@
-
-<h1>Listing Articles</h1>
- 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Text</th>
-    <th></th>
-  </tr>
- 
-  <% @articles.each do |article| %>
-    <tr>
-      <td><%= article.title %></td>
-      <td><%= article.text %></td>
-      <td><%= link_to 'Show', article_path(article) %></td>
-    </tr>
-  <% end %>
+<table class="table">
+    <thead>
+        <tr>
+        <th>Article</th>
+        <th>User</th>
+        <th>Date</th>
+        <th>Comment</th>
+        <th colspan="3"></th>
+        </tr>
+    </thead>
+        <tbody>
+            <% @verifieds.each do |verified| %>
+            <tr>
+                <td><%= verified.article.title %></td>
+                <td><%= verified.user.email %></td>
+                <td><%= verified.date %></td>
+                <td><%= verified.comment %></td>
+                <td><%= link_to 'Show', verified_path(verified), :class => 'btn btn-outline-primary btn-sm' %></td>
+                <td><%= link_to 'Edit', edit_verified_path(verified), :class => 'btn btn-outline-warning btn-sm' %></td>
+                <td><%= link_to 'Destroy', verified_path(verified), 
+                            method: :delete, :class => 'btn btn-outline-danger btn-sm',
+                            data: { confirm: 'Are you Sure?' } %>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
 </table>
+<br>
+<%= link_to 'New Verified', new_verified_path, :class => 'btn btn-outline-primary btn-sm' %>

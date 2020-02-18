@@ -1,43 +1,29 @@
-<%= form_with(model: @article, local: true) do |form| %>
+<%= form_with(model: @verified, local: true) do |form| %>
  
-    <% if @article.errors.any? %>
-      <div id="error_explanation">
-        <h2>
-          <%= pluralize(@article.errors.count, "error") %> prohibited
-          this article from being saved:
-        </h2>
-        <ul>
-          <% @article.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-          <% end %>
-        </ul>
-      </div>
-    <% end %>
-   
     <p>
       <%= form.label :article_id %><br>
-      <%= f.collection_select :article_id, Article.all, :id, :title, class: "form-control", 
+      <%= form.collection_select :article_id, Article.all, :id, :title, class: "form-control", 
                 prompt: "Seleccione Articulo" %>
     </p>
 
     <p>
         <%= form.label :user_id %><br>
-        <%= f.collection_select :user_id, User.all, :id, :title, class: "form-control", 
+        <%= form.collection_select :user_id, User.all, :id, :email, class: "form-control", 
                 prompt: "Seleccione Usuario" %>
-    </p>
-   
-    <p>
-      <%= form.label :text %><br>
-      <%= form.text_area :text, :class => 'form-control' %>
     </p>
 
     <div>
-      <%= form.label :attachments %>
-      <%= form.file_field :attachments, multiple: true, :class => 'btn btn-outline-secondary' %>
+      <%= form.label :date %>
+      <%= form.datetime_select :date, :class => 'form-control' %>
     </div>
-        
+   
     <p>
-      <%= form.submit 'Guardar', :class => 'btn btn-outline-primary' %>
+      <%= form.label :comment %><br>
+      <%= form.text_area :comment, :class => 'form-control' %>
+    </p>
+     
+    <p>
+      <%= form.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>
     </p>
 
     

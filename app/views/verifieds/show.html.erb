@@ -1,12 +1,22 @@
 
 <p>
-<strong>Title:</strong>
-<%= @article.title %>
+<strong>Articulo:</strong>
+<%= @verified.article.title %>
 </p>
 
 <p>
-<strong>Text:</strong>
-<%= @article.text %>
+<strong>User:</strong>
+<%= @verified.user.email %>
 </p>
 
-<%= link_to 'Back', articles_path %>
+<p>
+<strong>Date:</strong>
+<%= @verified.date %>
+</p>
+
+<p>
+<strong>Comment:</strong>
+<%= @verified.comment %>
+</p>
+
+<%= link_to 'Back', verifieds_path %>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
-}
+  }
 
   get 'home/index'
 
@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   resources :articles do 
     resources :comments
+  end
+
+  resources :categories do
+    resources :articles
   end
 
   resources :verifieds do
