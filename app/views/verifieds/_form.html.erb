@@ -1,5 +1,19 @@
 <%= form_with  model: @verified, local: true do |form| %>
- 
+  
+  <% if @verified.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@verified.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @verified.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
     <p>
       <%= form.label :article_id %><br>
       <%= 

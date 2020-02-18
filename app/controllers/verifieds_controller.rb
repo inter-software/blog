@@ -1,8 +1,9 @@
 class VerifiedsController < ApplicationController
 
-    before_action :set_verified, only: [:show, :edit, :update, :destroy]
+    #Add Filters with Before_action
+    before_action :set_verified, only: [:show, :edit, :update]
     
-    before_action :set_all_verified, only: [:index]
+    before_action :set_all_verified, only: [:index] # For Example
 
     def index       
     end
@@ -21,8 +22,10 @@ class VerifiedsController < ApplicationController
         @verified = Verified.new(verified_params)
 
         if @verified.save
+            flash[:msg] = "It saved successfully"
             redirect_to @verified
         else
+            flash[:msg] = "It dont't saved successfully"
             redirect_to :new
         end
     end
@@ -36,7 +39,7 @@ class VerifiedsController < ApplicationController
     end
 
     def destroy
-
+        @verified = Verified.find(params[:id])
         @verified.destroy
      
         redirect_to verified_path
@@ -54,6 +57,14 @@ class VerifiedsController < ApplicationController
         end
 
         def set_all_verified
+
             @verifieds = Verified.all
+
+            respond_to do |format|
+                format.html # index.html-erb
+                format.xml {render xml: @verifieds}
+                format.json {render json: @verifieds}
+            end
+            
         end
 end

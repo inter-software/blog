@@ -15,14 +15,6 @@ ActiveRecord::Schema.define(version: 2020_02_17_211307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Articles_Categories", id: false, force: :cascade do |t|
-    t.bigint "Article_id", null: false
-    t.bigint "Category_id", null: false
-    t.bigint "article_id"
-    t.bigint "category_id"
-    t.index ["article_id"], name: "index_Articles_Categories_on_article_id"
-    t.index ["category_id"], name: "index_Articles_Categories_on_category_id"
-  end
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -54,21 +46,6 @@ ActiveRecord::Schema.define(version: 2020_02_17_211307) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "taggings", id: :serial, force: :cascade do |t|
-    t.integer "tag_id"
-    t.integer "post_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["post_id"], name: "index_taggings_on_post_id"
-    t.index ["tag_id"], name: "index_taggings_on_tag_id"
-  end
-
-  create_table "tags", id: :serial, force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -92,7 +69,6 @@ ActiveRecord::Schema.define(version: 2020_02_17_211307) do
     t.index ["user_id"], name: "index_verifieds_on_user_id"
   end
 
-  add_foreign_key "Articles_Categories", "articles"
   add_foreign_key "Articles_Categories", "categories"
   add_foreign_key "comments", "articles"
   add_foreign_key "taggings", "posts"

@@ -36,10 +36,11 @@
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
       <%= link_to 'Articles', new_article_path, :class => 'dropdown-item' %>
-      
-      <div class="dropdown-divider"></div>
 
-      <%= link_to 'Categories', new_category_path, :class => 'dropdown-item' %>
+
+      <div class="dropdown-divider">Verified</div>
+
+      <%= link_to 'Verified Articles', new_verified_path, :class => 'dropdown-item' %>
       
     </div>
   </li>

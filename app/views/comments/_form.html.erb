@@ -1,5 +1,6 @@
-<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
-  <table>
+<%= form_with model: [ @article, @article.comments.build ], local: true do |form| %>
+ 
+ <table class="table">
   <thead>
     <tr>
       <th scope="col">    
@@ -15,9 +16,9 @@
         <%= form.text_area :body, :class => 'form-control' %>
       </th>
     </tr>
-
+    
     <tr>
-      <th>
+      <th><br>
           <%= form.submit "Save Comment", :class => 'btn btn-outline-primary btn-sm' %>
       </th>
     </tr>
@@ -25,8 +26,8 @@
   </thead>
  
 </table>
-    <p>
-      
-    </p>
+   
+
+
 <% end %>
 

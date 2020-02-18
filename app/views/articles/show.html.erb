@@ -1,5 +1,5 @@
 
-
+<div class="container">
 <div class="card">
   <div class="card-body">
         
@@ -13,44 +13,46 @@
             <%= @article.text %>
         </p>
 
-        <p>
-           
 
-            <div class="list-group">
-            
+<div class="row">
+    <div class="col">
+
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">
+                Files DownLoad
+            </a>
             <% if @article.attachments? %>
-  
               <% @article.attachments.each do |attachment| %>
-                <a>
-                    <%=  link_to(image_tag(attachment.url), attachment.url, target: '_blank', 
+                <a class="list-group-item list-group-item-action">
+                    <%=  link_to(image_tag('file_2.png', width: '30', height: '25', alt: 'File DownLoad'), 
+                        attachment.url, target: '_blank', 
                         :class=> 'list-group-item list-group-item-action')%>
                 </a>
               <% end %>
-            
-          <% end %>
-            </div>
-            
-        </p>
-  
+            <% end %>
+        </div>
+    </div>
+    <div class="col"></div> 
+</div>
+        
+        <br><br>
     
-        <div class="card">
+        <div class="card bg-light mb-3">
             <div class="card-header">
-                <h2>Comments <%= @article.comments.size %></h2>
+                <h3>Comments <%= @article.comments.size %></h3>
             </div>
-            <div class="card-body">
-
-                
+            <div class="card-body">              
                 <h2>Comments</h2>
                 <%= render @article.comments %>
                 
                 <h2>Add a comment:</h2>
                 <%= render 'comments/form' %>
-
-            
+                
             </div>
            
         </div><br>
         <%= link_to 'Edit', edit_article_path(@article), :class => 'btn btn-outline-primary btn-sm' %> |
         <%= link_to 'Back', articles_path, :class => 'btn btn-outline-success btn-sm' %>         
     </div>
+</div>
 </div>

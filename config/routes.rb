@@ -14,9 +14,9 @@ Rails.application.routes.draw do
     resources :comments
   end
 
-  resources :categories do
-    resources :articles
-  end
+  #resources :categories do
+  #  resources :articles
+  #end
 
   resources :verifieds do
     resources :users, only: [:new, :edit]

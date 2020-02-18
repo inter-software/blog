@@ -20,8 +20,6 @@ class ArticlesController < ApplicationController
     def edit
     end
 
-   
-
     def new
         @article = Article.new
     end
@@ -65,11 +63,8 @@ class ArticlesController < ApplicationController
     def destroy
         @article = Article.find(params[:id])
         @article.destroy
-        
-        redirect_to article_path
+        redirect_to article_path   
     end
-
-
 
     private
 
