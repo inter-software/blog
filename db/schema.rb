@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2020_02_17_211307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
@@ -69,10 +68,7 @@ ActiveRecord::Schema.define(version: 2020_02_17_211307) do
     t.index ["user_id"], name: "index_verifieds_on_user_id"
   end
 
-  add_foreign_key "Articles_Categories", "categories"
   add_foreign_key "comments", "articles"
-  add_foreign_key "taggings", "posts"
-  add_foreign_key "taggings", "tags"
   add_foreign_key "verifieds", "articles"
   add_foreign_key "verifieds", "users"
 end

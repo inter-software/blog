@@ -6,4 +6,12 @@ class User < ApplicationRecord
 
   has_many :verifieds
   has_many :articles, through: :verifieds
+
+  
+
+  validates :email, presence: true
+  validates :password, presence: true
+
+
+ 
 end
