@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class VerifiedsController < ApplicationController
   # Add Filters with Before_action
   before_action :set_verified, only: %i[show edit update]
@@ -63,3 +64,4 @@ class VerifiedsController < ApplicationController
     end
   end
 end
+# rubocop:enable Style/Documentation

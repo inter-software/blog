@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class CategoriesController < ApplicationController
   def index
     @category = Category.all
@@ -50,3 +51,4 @@ class CategoriesController < ApplicationController
     params.require(:category).permit(:name)
   end
 end
+# rubocop:enable Style/Documentation

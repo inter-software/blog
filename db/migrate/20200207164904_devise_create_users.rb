@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
-  def change
+  def change # rubocop:todo Metrics/MethodLength
     create_table :users do |t|
       ## Database authenticatable
       t.string :email,              null: false, default: ''
@@ -47,3 +48,4 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.0]
     end
   end
 end
+# rubocop:enable Style/Documentation

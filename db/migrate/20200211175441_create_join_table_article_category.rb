@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class CreateJoinTableArticleCategory < ActiveRecord::Migration[6.0]
   def change
     create_join_table :Articles, :Categories, id: false do |t|
@@ -8,3 +9,4 @@ class CreateJoinTableArticleCategory < ActiveRecord::Migration[6.0]
     end
   end
 end
+# rubocop:enable Style/Documentation

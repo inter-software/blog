@@ -14,7 +14,7 @@
 
 #
 # TypeCategory.create! do |t|
-#   t.name = 'Ciencia Ficción'
+#   t.name = 'Ciencia Ficción' # rubocop:todo Style/AsciiComments
 #   t.public = 1
 # end
 #

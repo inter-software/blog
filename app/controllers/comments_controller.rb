@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class CommentsController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "123",
   #    only: [:destroy]
@@ -29,3 +30,4 @@ class CommentsController < ApplicationController
     params.require(:comment).permit(:commenter, :body)
   end
 end
+# rubocop:enable Style/Documentation
