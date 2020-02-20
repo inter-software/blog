@@ -1,9 +1,7 @@
+# frozen_string_literal: true
+
 module VerifiedsHelper
-
-    def getDateTime
-
-        return Time.now.strftime("%d-%m-%Y %H:%M")
-
-    end
-
+  def getDateTime
+    Time.now.strftime('%d-%m-%Y %H:%M')
+  end
 end
