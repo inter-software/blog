@@ -1,11 +1,11 @@
+# frozen_string_literal: true
+
 module TypeCategoriesHelper
-
-    def mostrar_Audience(audience)
-        if audience 
-            "Adulto"
-        else
-            "Infantil"
-        end
+  def mostrar_Audience(audience)
+    if audience
+      'Adulto'
+    else
+      'Infantil'
     end
-
+  end
 end

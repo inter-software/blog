@@ -1,5 +1,6 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
-  
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -8,27 +9,20 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
-  #get 'categories/:category_id', to: 'articles#index', as: :category
+  # get 'categories/:category_id', to: 'articles#index', as: :category
 
-  resources :articles do 
+  resources :articles do
     resources :comments
   end
 
-  #resources :categories do
+  # resources :categories do
   #  resources :articles
-  #end
+  # end
 
   resources :verifieds do
-    resources :users, only: [:new, :edit]
-    resources :articles, only: [:new, :edit]
+    resources :users, only: %i[new edit]
+    resources :articles, only: %i[new edit]
   end
 
- 
   root to: 'home#index'
-
-
-
-  
-
-
 end
