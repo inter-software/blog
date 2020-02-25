@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class CreateVerifieds < ActiveRecord::Migration[6.0]
   def change
     create_table :verifieds do |t|
@@ -12,3 +13,4 @@ class CreateVerifieds < ActiveRecord::Migration[6.0]
     end
   end
 end
+# rubocop:enable Style/Documentation

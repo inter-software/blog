@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class ArticlesController < ApplicationController
-  before_action :set_article, only: %i[show edit update]
+
+  before_action :set_article, only: %i[show edit update] # Sintaxis of rubocop
 
   # http_basic_authenticate_with name: "admin", password: "123",
   # except: [:index, :show]
@@ -30,7 +32,9 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     # Guardar el Modelo y lo guarda en BD,
+    # rubocop:todo Style/AsciiComments
     # Retorna un Valor Booleano (True ó False), si se guardo correctamente o no.
+    # rubocop:enable Style/AsciiComments
     # @article.save , es validamos si modelo se guardo correctamente, con una condicion
 
     if @article.save
@@ -70,3 +74,4 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
   end
 end
+# rubocop:enable Style/Documentation

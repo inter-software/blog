@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Article < ApplicationRecord
+class Article < ApplicationRecord # rubocop:todo Style/Documentation
   # dependent: :destroy, actual como una eliminacion en cascada,,
   # en donde a  eliminar el padre (Article) se elimina de igual forma el hijo (Comment)
   has_many :comments, dependent: :destroy
@@ -15,7 +15,9 @@ class Article < ApplicationRecord
 
   mount_uploaders :attachments, PdfUploader
 
+  # rubocop:todo Style/AsciiComments
   # estamos validando un campo, para el title que sea de 5 caracteres (Tamaño)
+  # rubocop:enable Style/AsciiComments
   validates :title, presence: true, length: { minimum: 5 }
 
   validates :text, presence: true, length: { minimum: 10 }

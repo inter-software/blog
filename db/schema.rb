@@ -12,6 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+# rubocop:todo Metrics/BlockLength
 ActiveRecord::Schema.define(version: 20_200_217_211_307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension 'plpgsql'
@@ -73,3 +74,4 @@ ActiveRecord::Schema.define(version: 20_200_217_211_307) do
   add_foreign_key 'verifieds', 'articles'
   add_foreign_key 'verifieds', 'users'
 end
+# rubocop:enable Metrics/BlockLength

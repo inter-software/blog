@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
+# rubocop:todo Style/Documentation
 class CommentsController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "123",
   #    only: [:destroy]
-
-  def show; end
 
   def create
     # al articulo con id = ?, fue encontrado, pasamos una variable de instancia,
@@ -12,8 +11,9 @@ class CommentsController < ApplicationController
     # crea un evento en comments, con el metodo create, le pasamos un serie de parametros.
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    redirect_to article_path(@article)# /articles/:article_id/comments
   end
+
 
   def destroy
     @article = Article.find(params[:article_id])
@@ -23,9 +23,15 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end
 
+
+  def index
+    redirect_to article_path('Hello')
+  end
+
   private
 
   def comment_params
     params.require(:comment).permit(:commenter, :body)
   end
 end
+# rubocop:enable Style/Documentation
