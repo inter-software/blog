@@ -5,11 +5,73 @@ require 'rails_helper'
 RSpec.describe Comment, type: :model do
 
   describe  "Some Examples Article Model" do
+
+    let(:comment){ Comment.create(commenter: "Jimmy", body: "Wonderfull, Great!") }
+
     it 'Return the Comment Report ' do
-      comment = Comment.new(commenter: "Pepe", body: "Great!, Wonderfull")
       info = comment.report_comment # "My Comments: Pepe, Great!, Wonderfull"
-      expect(info).to eq("My Comments: Pepe, Great!, Wonderfull") # eq es un matcher de rspec
+      expect(info).to eq("My Comments: Jimmy, Wonderfull, Great!") # eq es un matcher de rspec
+      puts 'Ya estoy en este test'
     end
+
+    it "count comment" do
+      Comment.create(commenter: "juan", body: "uff")
+      comment.save
+      info = comment.count_comments
+      expect(info).to eq(0)
+    end
+
+    it 'Return The Comment in Hash' do
+      info = comment.list_comment
+      expect(info).to eql(44)
+    end
+
+    it "Return The Types/classes/response " do
+      expect(2).to be_kind_of(Numeric)
+      expect(comment).to be_instance_of(Comment)
+
+    end
+
+    it 'Return the Truthiness and existentialism' do
+      expect(true).to be_truthy #passes if actual is truthy (not nil or false)
+      expect('Juan'.downcase == 'juan'.downcase).to be true #return the value booleano if the expectative is true.
+      expect(false).to be_falsey #passes if actual is be_falsey (nit or false).
+      expect(nil).to be_nil
+    end
+
+    it 'Expecting errors' do
+      expect { 8/0 }.to raise_error
+      expect { 8/0 }.to raise_error(ZeroDivisionError) # Passes if actual is raise_error to ZeroDivisionError
+      expect { 8/0 }.to raise_error("divided by 0")
+      expect { 8/0 }.to raise_error(ZeroDivisionError, "divided by 0")
+    end
+
+    it 'Predicate matchers' do
+      expect([]).to be_empty
+      expect(:x => 3).to have_key(:x)
+    end
+
+    it 'Collection membership' do
+      expect([2, 3, Math.log10(5), Math.cos(-1).ceil, Math.sin(Math.sqrt(3).ceil)]).to include(1)
+      expect([2, 3, Math.log10(5), Math.cos(-1).ceil, Math.sin(Math.sqrt(3).ceil)]).to include(1, 2)
+      expect(:a => 'xyz').to include(:a => 'xyz') # passes if actual is include in with
+      expect([2,3,4]).to contain_exactly(4, 3, 2)
+      expect([3, 5, 9]).to match_array([9, 5, 3])
+    end
+
+    it "Ranges (1.9+ only)" do
+      expect(1..10).to cover(5)
+    end
+
+    it 'Block expectation' do
+      expect { |u| comment.transaction(&u)}.to yield_control
+      expect { |u| comment.transaction(&u)}.to yield_with_no_args
+      expect { |u| 5.tap(&u)}.not_to yield_with_no_args
+      expect { |u| 5.tap(&u)}.to yield_with_args(5)
+      expect { |u| 5.tap(&u)}.to yield_with_args(Integer)
+      expect { |u| [1, 3, 11].each(&u)}.to yield_successive_args(1, 3, 11)
+    end
+
 
   end
 
@@ -57,6 +119,9 @@ RSpec.describe Comment, type: :model do
     #  expect{5 / 0}.to raise_error("Divided by 0")
     #  expect{5 / 0}.to raise_error(ZeroDivisionError, "Divided by 0")
     #end
+
+
+
   end
 
   describe "Predicate Matchers" do

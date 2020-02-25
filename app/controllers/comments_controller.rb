@@ -5,16 +5,15 @@ class CommentsController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "123",
   #    only: [:destroy]
 
-  def show; end
-
   def create
     # al articulo con id = ?, fue encontrado, pasamos una variable de instancia,
     # refencia la variable de instancia  @article con el articulo encontrado,
     # crea un evento en comments, con el metodo create, le pasamos un serie de parametros.
     @article = Article.find(params[:article_id])
     @comment = @article.comments.create(comment_params)
-    redirect_to article_path(@article)
+    redirect_to article_path(@article)# /articles/:article_id/comments
   end
+
 
   def destroy
     @article = Article.find(params[:article_id])
@@ -22,6 +21,11 @@ class CommentsController < ApplicationController
     @comment.destroy
 
     redirect_to article_path(@article)
+  end
+
+
+  def index
+    redirect_to article_path('Hello')
   end
 
   private

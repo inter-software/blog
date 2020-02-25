@@ -31,38 +31,10 @@
                                       PATCH  /articles/:id(.:format)                                                                  articles#update
                                       PUT    /articles/:id(.:format)                                                                  articles#update
                                       DELETE /articles/:id(.:format)                                                                  articles#destroy
-                    category_articles GET    /categories/:category_id/articles(.:format)                                              articles#index
-                                      POST   /categories/:category_id/articles(.:format)                                              articles#create
-                 new_category_article GET    /categories/:category_id/articles/new(.:format)                                          articles#new
-                edit_category_article GET    /categories/:category_id/articles/:id/edit(.:format)                                     articles#edit
-                     category_article GET    /categories/:category_id/articles/:id(.:format)                                          articles#show
-                                      PATCH  /categories/:category_id/articles/:id(.:format)                                          articles#update
-                                      PUT    /categories/:category_id/articles/:id(.:format)                                          articles#update
-                                      DELETE /categories/:category_id/articles/:id(.:format)                                          articles#destroy
-                           categories GET    /categories(.:format)                                                                    categories#index
-                                      POST   /categories(.:format)                                                                    categories#create
-                         new_category GET    /categories/new(.:format)                                                                categories#new
-                        edit_category GET    /categories/:id/edit(.:format)                                                           categories#edit
-                             category GET    /categories/:id(.:format)                                                                categories#show
-                                      PATCH  /categories/:id(.:format)                                                                categories#update
-                                      PUT    /categories/:id(.:format)                                                                categories#update
-                                      DELETE /categories/:id(.:format)                                                                categories#destroy
-                       verified_users GET    /verifieds/:verified_id/users(.:format)                                                  users#index
-                                      POST   /verifieds/:verified_id/users(.:format)                                                  users#create
                     new_verified_user GET    /verifieds/:verified_id/users/new(.:format)                                              users#new
                    edit_verified_user GET    /verifieds/:verified_id/users/:id/edit(.:format)                                         users#edit
-                        verified_user GET    /verifieds/:verified_id/users/:id(.:format)                                              users#show
-                                      PATCH  /verifieds/:verified_id/users/:id(.:format)                                              users#update
-                                      PUT    /verifieds/:verified_id/users/:id(.:format)                                              users#update
-                                      DELETE /verifieds/:verified_id/users/:id(.:format)                                              users#destroy
-                    verified_articles GET    /verifieds/:verified_id/articles(.:format)                                               articles#index
-                                      POST   /verifieds/:verified_id/articles(.:format)                                               articles#create
                  new_verified_article GET    /verifieds/:verified_id/articles/new(.:format)                                           articles#new
                 edit_verified_article GET    /verifieds/:verified_id/articles/:id/edit(.:format)                                      articles#edit
-                     verified_article GET    /verifieds/:verified_id/articles/:id(.:format)                                           articles#show
-                                      PATCH  /verifieds/:verified_id/articles/:id(.:format)                                           articles#update
-                                      PUT    /verifieds/:verified_id/articles/:id(.:format)                                           articles#update
-                                      DELETE /verifieds/:verified_id/articles/:id(.:format)                                           articles#destroy
                             verifieds GET    /verifieds(.:format)                                                                     verifieds#index
                                       POST   /verifieds(.:format)                                                                     verifieds#create
                          new_verified GET    /verifieds/new(.:format)                                                                 verifieds#new

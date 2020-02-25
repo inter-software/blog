@@ -2,6 +2,7 @@
 
 # rubocop:todo Style/Documentation
 class ArticlesController < ApplicationController
+
   before_action :set_article, only: %i[show edit update] # Sintaxis of rubocop
 
   # http_basic_authenticate_with name: "admin", password: "123",

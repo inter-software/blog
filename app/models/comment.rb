@@ -17,8 +17,33 @@ class Comment < ApplicationRecord # rubocop:todo Style/Documentation
   
   def search_comment
 
-    ['Anna', 'carlos', 'charly', 'esteban'].include?(:commenter)
+    ['Anna', 'carlos', 'charly', 'esteban'].map{|u| u.downcase }
 
+  end
+
+  def list_comment
+
+    File.open("log.xml", "w"){|file| file.write "#{Time.now} - User Logged in \n"}
+
+  end
+
+  def load_hash
+
+    hash = Hash.new
+
+    for i in 1..3
+      print 'ID: '
+      hash[:id] = gets.chomp.to_s
+      print 'Name: '
+      hash[:name] = gets.chomp.to_s
+      print 'Birtday Date: '
+      hash[:date] = gets.chomp.to_i
+    end
+
+  end
+
+  def count_comments
+    Comment.count
   end
 end
 
