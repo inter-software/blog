@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   get 'home/index'
 
+  get 'welcome/index'
+
+
+
   # get 'categories/:category_id', to: 'articles#index', as: :category
 
   resources :articles do
@@ -24,5 +28,8 @@ Rails.application.routes.draw do
     resources :articles, only: %i[new edit]
   end
 
+  resources :messages
+
   root to: 'home#index'
+
 end

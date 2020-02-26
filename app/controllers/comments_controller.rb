@@ -5,6 +5,12 @@ class CommentsController < ApplicationController
   # http_basic_authenticate_with name: "admin", password: "123",
   #    only: [:destroy]
 
+  def show
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.find(params[:id])
+    redirect_to :show
+  end
+
   def create
     # al articulo con id = ?, fue encontrado, pasamos una variable de instancia,
     # refencia la variable de instancia  @article con el articulo encontrado,
@@ -23,15 +29,10 @@ class CommentsController < ApplicationController
     redirect_to article_path(@article)
   end
 
-
-  def index
-    redirect_to article_path('Hello')
-  end
-
   private
 
-  def comment_params
-    params.require(:comment).permit(:commenter, :body)
-  end
+    def comment_params
+      params.require(:comment).permit(:commenter, :body)
+    end
 end
 # rubocop:enable Style/Documentation
