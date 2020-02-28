@@ -1,0 +1,45 @@
+<%= form_with  model: @survey, local: true do |f| %>
+
+  <% if @survey.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@survey.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @survey.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= f.label :survey_id %><br>
+    <%= f.collection_select :id, Answer.all, :answer_id, :response,
+                            class: "form-control",
+                            prompt: "Seleccione Respuesta" %>
+  </p>
+
+  <p>
+    <%= f.label :survey_name %><br>
+    <%= f.text_field :survey_name, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :survey_desc %><br>
+    <%= f.text_area :survey_desc, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment, :class => "form-control" %>
+  </p>
+
+  <p>
+    <%= f.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>
+  </p>
+
+
+
+<% end %>
