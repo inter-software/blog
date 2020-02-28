@@ -16,13 +16,13 @@ class MessagesController < ApplicationController
 
   def create
 
-    message = Message.new(params[:message])
+    message = Message.new(text: params[:message])
 
     if message.save
       flash[:notice] = "The message was saved successfully"
-      redirect_to :action =>  "index"
+      redirect_to action:  "new"
     else
-      redirect_to :action =>  "new"
+      redirect_to action: "index"
     end
 
   end
