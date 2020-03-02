@@ -16,15 +16,15 @@
         <td><%= survey.survey_name %></td>
         <td><%= survey.survey_desc %></td>
         <td>
-          <%= link_to 'Show', survey_path(verified), :class => 'btn btn-outline-primary btn-sm' %>
+          <%= link_to 'Show', survey_path(survey), :class => 'btn btn-outline-primary btn-sm' %>
         </td>
 
         <td>
-          <%= link_to 'Edit', edit_survey_path(verified), :class => 'btn btn-outline-warning btn-sm' %>
+          <%= link_to 'Edit', edit_survey_path(survey), :class => 'btn btn-outline-warning btn-sm' %>
         </td>
 
         <td>
-          <%= link_to 'Destroy', survey_path(verified),
+          <%= link_to 'Destroy', survey_path(survey),
                       method: :delete,
                       data: { confirm: 'Are you Sure?' },
                       :class => 'btn btn-outline-danger btn-sm'

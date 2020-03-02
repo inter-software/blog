@@ -9,6 +9,7 @@ class Article < ApplicationRecord # rubocop:todo Style/Documentation
 
   has_many :verifieds
   has_many :users, through: :verifieds
+  has_many :publications, as: :published
 
   # Upload Attachements
   mount_uploaders :attachments, ImageUploader

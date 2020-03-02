@@ -15,7 +15,6 @@
   <% end %>
 
   <p>
-    <%= f.label :survey_id %><br>
     <%= f.collection_select :id, Answer.all, :answer_id, :response,
                             class: "form-control",
                             prompt: "Seleccione Respuesta" %>
@@ -31,10 +30,6 @@
     <%= f.text_area :survey_desc, class: "form-control" %>
   </p>
 
-  <p>
-    <%= f.label :comment %><br>
-    <%= f.text_area :comment, :class => "form-control" %>
-  </p>
 
   <p>
     <%= f.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>

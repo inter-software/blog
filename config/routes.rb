@@ -16,7 +16,10 @@ Rails.application.routes.draw do
   # get 'categories/:category_id', to: 'articles#index', as: :category
 
   resources :articles do
-    resources :comments
+    resources :comments do
+      resource :publications, module: :comments
+    end
+    resource :publications, module: :articles
   end
 
   # resources :categories do
@@ -26,6 +29,17 @@ Rails.application.routes.draw do
   resources :verifieds do
     resources :users, only: %i[new edit]
     resources :articles, only: %i[new edit]
+  end
+
+
+  resource :questions do
+    resource :answers do
+      resource :surveys
+    end
+  end
+
+  resource :user do
+    resource :questions
   end
 
   resources :messages

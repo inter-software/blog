@@ -1,4 +1,4 @@
 class Answer < ApplicationRecord
-  has_many :questions
+  belongs_to :question
   has_many :surveys
 end
