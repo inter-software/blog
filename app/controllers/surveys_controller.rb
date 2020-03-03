@@ -1,5 +1,4 @@
 class SurveysController < ApplicationController
-
   before_action :set_survey, only: %i[show edit update]
 
   def index
@@ -57,5 +56,4 @@ class SurveysController < ApplicationController
   def survey_params
     params.require(:survey).permit(:answer_id, :survey_name, :survey_desc)
   end
-
 end

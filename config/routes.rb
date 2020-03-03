@@ -31,12 +31,16 @@ Rails.application.routes.draw do
     resources :articles, only: %i[new edit]
   end
 
-
-  resource :questions do
-    resource :answers do
-      resource :surveys
+  resource :surveys do
+    resource :questions do
+      resource :answer_options
     end
   end
+
+
+
+
+
 
   resource :user do
     resource :questions

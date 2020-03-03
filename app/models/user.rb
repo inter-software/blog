@@ -10,6 +10,9 @@ class User < ApplicationRecord # rubocop:todo Style/Documentation
   has_many :articles, through: :verifieds
   has_many :questions
 
+  has_many :answer_users
+  has_many :users, through: :answer_users
+
   validates :email, presence: true
   validates :password, presence: true
 end

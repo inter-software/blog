@@ -1,15 +1,15 @@
 require 'rails_helper'
 
 # Specs in this file have access to a helper object that includes
-# the AnswersHelper. For example:
+# the AnswerOptionsHelper. For example:
 #
-# describe AnswersHelper do
+# describe AnswerOptionsHelper do
 #   describe "string concat" do
 #     it "concats two strings with spaces" do
 #       expect(helper.concat_strings("this","that")).to eq("this that")
 #     end
 #   end
 # end
-RSpec.describe AnswersHelper, type: :helper do
+RSpec.describe AnswerOptionsHelper, type: :helper do
   pending "add some examples to (or delete) #{__FILE__}"
 end

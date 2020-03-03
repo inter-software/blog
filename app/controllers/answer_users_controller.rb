@@ -1,0 +1,2 @@
+class AnswerUsersController < ApplicationController
+end
