@@ -1,38 +1,42 @@
 class SurveysController < ApplicationController
-  before_action :set_survey, only: %i[show edit update]
 
-  def index
-    @surveys = Survey.all
+  #before_action :set_survey, only: %i[show ]
 
-    respond_to do |format|
-      format.html
-      format.json {render json: @surveys }
-    end
-  end
+  before_action :set_all_surveys, only:  :index
+
+  def index; end
 
   def new
-    @survey = Question.new
+    @survey = Survey.new
   end
 
+  # surveys#edit
+  # edit_surveys GET /surveys/edit
   def edit
+    @survey = Survey.find(params[:id])
   end
 
-  def show
-  end
+  def show; end
 
   def create
     @survey = Survey.new(survey_params)
 
-    if @survey.save
-      flash[:msg] = 'It saved successfully'
-      redirect_to @survey
-    else
-      flash[:msg] = "It dont't saved successfully"
-      redirect_to :new
+    respond_to do |format|
+      if  @survey.save
+        flash[:msg] = 'It saved successfully'
+        format.html { redirect_to @survey }
+        format.xml {render xml: @survey }
+        format.json {render json: @surveys }
+      else
+        flash[:msg] = "It dont't saved successfully"
+        render :new
+      end
     end
   end
 
   def update
+    @survey = Survey.find(params[:id])
+
     if @survey.update(survey_params)
       redirect_to @survey
     else
@@ -42,18 +46,21 @@ class SurveysController < ApplicationController
 
   def destroy
     @survey = Survey.find(params[:id])
-
     @survey.destroy
-    redirect_to survey_path
+    redirect_to @survey
   end
 
   private
 
-  def set_survey
-    @survey = Survey.find(params[:id])
-  end
+      def set_all_surveys
+        @surveys = Survey.all
+      end
 
-  def survey_params
-    params.require(:survey).permit(:answer_id, :survey_name, :survey_desc)
-  end
+      def set_survey
+        @survey = Survey.find(params[:id])
+      end
+
+      def survey_params
+        params.require(:survey).permit(:survey_name, :survey_desc)
+      end
 end

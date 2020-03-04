@@ -1,0 +1,19 @@
+<%= form_with(model: @surveys, local: true) do |form| %>
+
+  <div>
+    <%= form.label :survey_name %>
+    <%= form.text_field :survey_name, class: "form-control" %>
+  </div>
+
+  <p>
+    <%= form.label :survey_desc %><br>
+    <%= form.text_area :survey_desc, class: "form-control" %>
+  </p>
+
+  <p>
+    <%= form.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>
+  </p>
+
+
+
+<% end %>

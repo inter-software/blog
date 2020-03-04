@@ -1,0 +1,36 @@
+<div class="container">
+  <br><br>
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Text</th>
+      <th>Question</th>
+      <th colspan="3"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @answer_options.each do |answer_option| %>
+      <tr>
+        <td><%= answer_option.text %></td>
+        <td><%= answer_option.question.question %></td>
+
+        <td>
+          <%= link_to 'Edit', edit_answer_option_path(answer_option), :class => 'btn btn-outline-warning btn-sm' %>
+        </td>
+
+        <td>
+          <%= link_to 'Destroy', answer_option_path(question),
+                      method: :delete,
+                      data: { confirm: 'Are you Sure?' },
+                      :class => 'btn btn-outline-danger btn-sm'
+          %>
+        </td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
+  <br>
+
+  <%= link_to 'New Verified', new_answer_option_path, :class => 'btn btn-outline-primary btn-sm' %>
+
+</div>

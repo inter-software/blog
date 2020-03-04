@@ -1,4 +1,4 @@
 class Question < ApplicationRecord
-  belongs_to :survey
-  has_many :answer_options
+  belongs_to :survey # Indicate that question have to survey
+  has_many :answer_options, dependent: :destroy
 end
