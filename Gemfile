@@ -79,3 +79,5 @@ gem 'file_validators'
 gem 'will_paginate', '~> 3.2', '>= 3.2.1'
 
 gem 'rubocop', '~> 0.80.0'
+
+gem 'factory_bot'

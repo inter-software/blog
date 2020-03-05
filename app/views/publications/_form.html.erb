@@ -1,0 +1,9 @@
+<%= form_with(model: [published, Publication.new], local: true) do |f| %>
+
+  <div class="form-control">
+    <%= f.label :published %>
+    <%= f.text_field :published  %>
+    <% f.submit class: "btn btn-primary" %>
+  </div>
+
+<% end %>

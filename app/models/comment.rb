@@ -3,6 +3,7 @@
 class Comment < ApplicationRecord # rubocop:todo Style/Documentation
 
   belongs_to :article
+  has_many :publications, as: :published
 
   validates :commenter, presence: true
 

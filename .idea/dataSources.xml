@@ -33,5 +33,11 @@
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
       <jdbc-url>jdbc:postgresql://127.0.0.1:5432/gap_blog_test</jdbc-url>
     </data-source>
+    <data-source source="LOCAL" name="development" uuid="eb725d78-685a-4149-9d17-8f48837a22ab">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/db/development.sqlite3</jdbc-url>
+    </data-source>
   </component>
 </project>

@@ -1,0 +1,37 @@
+<%= form_with  model: @answer_options, local: true do |form| %>
+
+  <% if @answer_options.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@answer_options.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @answer_options.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div>
+    <%= form.label :text %>
+    <%= form.text_field :text, class: "form-control" %>
+  </div>
+
+  <p>
+    <%= form.label :question_id %><br>
+    <%=
+      form.collection_select :question_id, Question.order(:question).all, :id, :question,
+                             class: "form-control",
+                             prompt: "Select Question"
+    %>
+  </p>
+  <p>
+    <%= form.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>
+  </p>
+
+
+
+<% end %>

@@ -1,9 +1,10 @@
 # frozen_string_literal: true
 
 # rubocop:todo Style/Documentation
-class ArticlesController < ApplicationController
+class ArticlesController  < ApplicationController
 
   before_action :set_article, only: %i[show edit update] # Sintaxis of rubocop
+
 
   # http_basic_authenticate_with name: "admin", password: "123",
   # except: [:index, :show]
@@ -73,5 +74,6 @@ class ArticlesController < ApplicationController
   def set_article
     @article = Article.find(params[:id])
   end
+
 end
 # rubocop:enable Style/Documentation

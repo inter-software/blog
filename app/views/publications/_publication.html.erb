@@ -1,0 +1,11 @@
+<h5>Publications: </h5>
+
+<% published.publications.each do |publication| %>
+
+  <p>
+    <hr>
+    <%= published.published_type %>
+    <em><%= time_ago_in_words publication.created_at %></em>
+  </p>
+
+<% end %>

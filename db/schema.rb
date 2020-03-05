@@ -10,17 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_02_28_195009) do
+ActiveRecord::Schema.define(version: 2020_03_03_151010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "answers", force: :cascade do |t|
-    t.string "response"
+  create_table "answer_options", force: :cascade do |t|
+    t.text "text"
     t.bigint "question_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["question_id"], name: "index_answer_options_on_question_id"
+  end
+
+  create_table "answer_users", force: :cascade do |t|
+    t.bigint "survey_id", null: false
+    t.bigint "user_id", null: false
+    t.bigint "answer_option_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["answer_option_id"], name: "index_answer_users_on_answer_option_id"
+    t.index ["survey_id"], name: "index_answer_users_on_survey_id"
+    t.index ["user_id"], name: "index_answer_users_on_user_id"
   end
 
   create_table "articles", force: :cascade do |t|
@@ -66,21 +77,27 @@ ActiveRecord::Schema.define(version: 2020_02_28_195009) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "questions", force: :cascade do |t|
-    t.string "question"
-    t.bigint "user_id", null: false
+  create_table "publications", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["user_id"], name: "index_questions_on_user_id"
+    t.string "published_type"
+    t.bigint "published_id"
+    t.index ["published_type", "published_id"], name: "index_publications_on_published_type_and_published_id"
+  end
+
+  create_table "questions", force: :cascade do |t|
+    t.string "question"
+    t.bigint "survey_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["survey_id"], name: "index_questions_on_survey_id"
   end
 
   create_table "surveys", force: :cascade do |t|
     t.string "survey_name"
     t.text "survey_desc"
-    t.bigint "answer_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["answer_id"], name: "index_surveys_on_answer_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -113,10 +130,12 @@ ActiveRecord::Schema.define(version: 2020_02_28_195009) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "answers", "questions"
+  add_foreign_key "answer_options", "questions"
+  add_foreign_key "answer_users", "answer_options"
+  add_foreign_key "answer_users", "surveys"
+  add_foreign_key "answer_users", "users"
   add_foreign_key "comments", "articles"
-  add_foreign_key "questions", "users"
-  add_foreign_key "surveys", "answers"
+  add_foreign_key "questions", "surveys"
   add_foreign_key "verifieds", "articles"
   add_foreign_key "verifieds", "users"
 end
