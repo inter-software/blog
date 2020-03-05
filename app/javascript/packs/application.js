@@ -7,7 +7,6 @@ require("channels")
 require("jquery")
 
 
-
 global.toastr = require("toastr")
 
 import 'bootstrap'

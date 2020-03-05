@@ -3,7 +3,7 @@ class QuestionsController < ApplicationController
   before_action :set_question, only: %i[show :edit :update destroy :index :new :create]
 
   def index
-    @questions = @survey.questions.all # List to all the questions to the survey (All Not)
+    @questions = Question.all # List to all the questions to the survey (All Not)
   end
 
   def new
@@ -18,11 +18,11 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @survey.id = @question.id
+    # @survey.id = @question.id
     respond_to do |format|
       if @question.save
         format.html {redirect_to survey_questions_path(@question), notice: 'Question was successfully created'}
-        format.json {render :show, location: @question, status: :created}
+        format.json {render :show, status: :created}
       else
         format.html{render :new}
         format.json{render json: @question, status: :unprocessable_entity}

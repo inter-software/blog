@@ -4,6 +4,8 @@ class SurveysController < ApplicationController
 
   before_action :set_all_surveys, only:  :index
 
+  before_action :set_survey, only: %i[ show edit update destroy ]
+
   def index; end
 
   def new
@@ -13,10 +15,10 @@ class SurveysController < ApplicationController
   # surveys#edit
   # edit_surveys GET /surveys/edit
   def edit
-    @survey = Survey.find(params[:id])
   end
 
-  def show; end
+  def show
+  end
 
   def create
     @survey = Survey.new(survey_params)
@@ -35,8 +37,6 @@ class SurveysController < ApplicationController
   end
 
   def update
-    @survey = Survey.find(params[:id])
-
     if @survey.update(survey_params)
       redirect_to @survey
     else
@@ -45,7 +45,6 @@ class SurveysController < ApplicationController
   end
 
   def destroy
-    @survey = Survey.find(params[:id])
     @survey.destroy
     redirect_to surveys_index_path(@survey)
   end

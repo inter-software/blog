@@ -24,6 +24,7 @@
               Admin
             </button>
             <div class="dropdown-menu">
+              <a><%= link_to 'Show', survey_path(survey), class: 'dropdown-item', data: {toggle: "#staticBackdrop", target: "#staticBackdrop"}  %></a>
               <a><%= link_to 'Edit', edit_survey_path(survey), class: 'dropdown-item' %></a>
               <a>
                 <%= link_to 'Destroy', survey_path(survey),
@@ -41,6 +42,9 @@
   </table>
   <br>
 
-  <%= link_to 'New Survey', new_survey_path, class: "btn btn-primary" %>
+  <%= link_to 'New Survey', new_survey_path, class: "btn btn-primary", data: { toggle: 'modal', target: '#exampleModal'}%>
+
 
 </div>
+
+
