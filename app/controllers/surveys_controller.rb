@@ -22,11 +22,11 @@ class SurveysController < ApplicationController
     @survey = Survey.new(survey_params)
 
     respond_to do |format|
-      if  @survey.save
+      if @survey.save
         flash[:msg] = 'It saved successfully'
         format.html { redirect_to @survey }
         format.xml {render xml: @survey }
-        format.json {render json: @surveys }
+        format.json {render json: @survey }
       else
         flash[:msg] = "It dont't saved successfully"
         render :new
@@ -47,7 +47,7 @@ class SurveysController < ApplicationController
   def destroy
     @survey = Survey.find(params[:id])
     @survey.destroy
-    redirect_to @survey
+    redirect_to surveys_index_path(@survey)
   end
 
   private

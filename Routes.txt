@@ -17,9 +17,9 @@
                            home_index GET    /home/index(.:format)                                                                    home#index
                         welcome_index GET    /welcome/index(.:format)                                                                 welcome#index
                         surveys_index GET    /surveys/index(.:format)                                                                 surveys#index
-                                      GET    /surveys/:id/edit(.:format)                                                              surveys#edit
-                          surveys_new GET    /surveys/new(.:format)                                                                   surveys#new
-                                      GET    /surveys/:id/destroy(.:format)                                                           surveys#destroy
+                                      GET    /survey/:id/edit(.:format)                                                               surveys#edit
+                          surveys_new POST   /surveys/new(.:format)                                                                   surveys#new
+                                      GET    /survey/:id/destroy(.:format)                                                            surveys#destroy
      new_article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications/new(.:format)                    comments/publications#new
     edit_article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications/edit(.:format)                   comments/publications#edit
          article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#show

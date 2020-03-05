@@ -2,7 +2,6 @@
 
 Rails.application.routes.draw do
 
-
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
@@ -16,12 +15,12 @@ Rails.application.routes.draw do
   get 'surveys/index'
 
   # Prefix: edit_surveys Verb: GET  URI Pattern: /surveys/:id/edit  Controller#Action: surveys#edit
-  get 'surveys/:id/edit', to: 'surveys#edit'
+  match 'survey/:id/edit', to: 'surveys#edit', via: :get
 
   # Prefix: new_surveys Verb: GET   URI Pattern: /surveys/new   Controller#Action: surveys#new
-  get '/surveys/new'
+  match '/surveys/new', to: 'surveys#new', via: [:post, :get]
 
-  get 'surveys/:id/destroy', to: 'surveys#destroy'
+  match 'survey/:id/destroy', to: 'surveys#destroy', via: [:get, :delete]
 
 
   # get 'categories/:category_id', to: 'articles#index', as: :category
