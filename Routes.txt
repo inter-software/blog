@@ -16,10 +16,6 @@
                                       POST   /users(.:format)                                                                         users/registrations#create
                            home_index GET    /home/index(.:format)                                                                    home#index
                         welcome_index GET    /welcome/index(.:format)                                                                 welcome#index
-                        surveys_index GET    /surveys/index(.:format)                                                                 surveys#index
-                                      GET    /survey/:id/edit(.:format)                                                               surveys#edit
-                          surveys_new POST   /surveys/new(.:format)                                                                   surveys#new
-                                      GET    /survey/:id/destroy(.:format)                                                            surveys#destroy
      new_article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications/new(.:format)                    comments/publications#new
     edit_article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications/edit(.:format)                   comments/publications#edit
          article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#show
@@ -74,6 +70,22 @@
                                       PATCH  /verifieds/:id(.:format)                                                                 verifieds#update
                                       PUT    /verifieds/:id(.:format)                                                                 verifieds#update
                                       DELETE /verifieds/:id(.:format)                                                                 verifieds#destroy
+                     survey_questions GET    /surveys/:survey_id/questions(.:format)                                                  questions#index
+                                      POST   /surveys/:survey_id/questions(.:format)                                                  questions#create
+                  new_survey_question GET    /surveys/:survey_id/questions/new(.:format)                                              questions#new
+                 edit_survey_question GET    /surveys/:survey_id/questions/:id/edit(.:format)                                         questions#edit
+                      survey_question GET    /surveys/:survey_id/questions/:id(.:format)                                              questions#show
+                                      PATCH  /surveys/:survey_id/questions/:id(.:format)                                              questions#update
+                                      PUT    /surveys/:survey_id/questions/:id(.:format)                                              questions#update
+                                      DELETE /surveys/:survey_id/questions/:id(.:format)                                              questions#destroy
+                              surveys GET    /surveys(.:format)                                                                       surveys#index
+                                      POST   /surveys(.:format)                                                                       surveys#create
+                           new_survey GET    /surveys/new(.:format)                                                                   surveys#new
+                          edit_survey GET    /surveys/:id/edit(.:format)                                                              surveys#edit
+                               survey GET    /surveys/:id(.:format)                                                                   surveys#show
+                                      PATCH  /surveys/:id(.:format)                                                                   surveys#update
+                                      PUT    /surveys/:id(.:format)                                                                   surveys#update
+                                      DELETE /surveys/:id(.:format)                                                                   surveys#destroy
                              messages GET    /messages(.:format)                                                                      messages#index
                                       POST   /messages(.:format)                                                                      messages#create
                           new_message GET    /messages/new(.:format)                                                                  messages#new

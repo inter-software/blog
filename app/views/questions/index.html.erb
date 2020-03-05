@@ -15,22 +15,24 @@
         <td><%= question.survey.survey_name %></td>
 
         <td>
-          <%= link_to 'Edit', edit_question_path(question), :class => 'btn btn-outline-warning btn-sm' %>
+          <%= link_to 'Edit', :class => 'btn btn-outline-warning btn-sm' %>
         </td>
 
         <td>
-          <%= link_to 'Destroy', question_path(question),
+          <%= link_to 'Destroy',
                       method: :delete,
                       data: { confirm: 'Are you Sure?' },
                       :class => 'btn btn-outline-danger btn-sm'
           %>
         </td>
+
       </tr>
     <% end %>
     </tbody>
   </table>
   <br>
 
-  <%= link_to 'New Verified', new_survey_path, :class => 'btn btn-outline-primary btn-sm' %>
+
+  <%= link_to 'New Verified', new_survey_questions_path(@survey), :class => 'btn btn-outline-primary btn-sm' %>
 
 </div>

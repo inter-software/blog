@@ -12,17 +12,6 @@ Rails.application.routes.draw do
 
   get 'welcome/index'
 
-  get 'surveys/index'
-
-  # Prefix: edit_surveys Verb: GET  URI Pattern: /surveys/:id/edit  Controller#Action: surveys#edit
-  match 'survey/:id/edit', to: 'surveys#edit', via: :get
-
-  # Prefix: new_surveys Verb: GET   URI Pattern: /surveys/new   Controller#Action: surveys#new
-  match '/surveys/new', to: 'surveys#new', via: [:post, :get]
-
-  match 'survey/:id/destroy', to: 'surveys#destroy', via: [:get, :delete]
-
-
   # get 'categories/:category_id', to: 'articles#index', as: :category
 
   resources :articles do
@@ -42,8 +31,8 @@ Rails.application.routes.draw do
   end
 
 
-  resource :surveys, only: %i[:index :show :edit :new :destroy] do
-    resource :questions, only: %i[:index :show :edit :new :destroy]
+  resources :surveys do
+    resources :questions
   end
 
 
