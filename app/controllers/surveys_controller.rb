@@ -4,7 +4,7 @@ class SurveysController < ApplicationController
 
   before_action :set_all_surveys, only:  :index
 
-  before_action :set_survey, only: %i[ show edit update destroy ]
+  before_action :set_survey, only: %i[ show edit update destroy partial_show]
 
   def index; end
 
@@ -18,6 +18,7 @@ class SurveysController < ApplicationController
   end
 
   def show
+
   end
 
   def create
@@ -46,7 +47,7 @@ class SurveysController < ApplicationController
 
   def destroy
     @survey.destroy
-    redirect_to surveys_index_path(@survey)
+    redirect_to survey_path(@survey)
   end
 
   private
