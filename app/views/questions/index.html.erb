@@ -17,11 +17,11 @@
         <th><%= question.survey.survey_name %></th>
         <th><%= question.created_at %></th>
         <td>
-          <%= link_to 'Edit', edit_survey_question_path(question), class: 'btn btn-outline-warning btn-sm' %>
+          <%= link_to 'Edit', class: 'btn btn-outline-warning btn-sm' %>
         </td>
 
         <td>
-          <%= link_to 'Destroy', survey_question_path(question),
+          <%= link_to 'Destroy',
                       method: :delete,
                       data: { confirm: 'Are you Sure?' },
                       :class => 'btn btn-outline-danger btn-sm'
