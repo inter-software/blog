@@ -12,6 +12,7 @@
     <tbody>
     <% @questions.each do |question| %>
       <tr>
+
         <td><%= question.id %></td>
         <td><%= question.question %></td>
         <th><%= question.survey.survey_name %></th>
@@ -25,6 +26,7 @@
                       method: :delete,
                       data: { confirm: 'Are you Sure?' },
                       :class => 'btn btn-outline-danger btn-sm'
+
           %>
         </td>
 

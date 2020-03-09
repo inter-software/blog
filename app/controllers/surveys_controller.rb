@@ -2,6 +2,8 @@ class SurveysController < ApplicationController
 
   #before_action :set_survey, only: %i[show ]
 
+  before_action :authenticate_user!
+
   before_action :set_all_surveys, only:  :index
 
   before_action :set_survey, only: %i[ show edit update destroy partial_show]
@@ -10,6 +12,7 @@ class SurveysController < ApplicationController
 
   def new
     @survey = Survey.new
+    @survey.questions.new
   end
 
   # surveys#edit
@@ -23,7 +26,7 @@ class SurveysController < ApplicationController
 
   def create
     @survey = Survey.new(survey_params)
-
+    @survey.questions.first
     respond_to do |format|
       if @survey.save
         flash[:msg] = 'It saved successfully'
@@ -61,6 +64,6 @@ class SurveysController < ApplicationController
       end
 
       def survey_params
-        params.require(:survey).permit(:survey_name, :survey_desc)
+        params.require(:survey).permit(:survey_name, :survey_desc, questions_attributes: [:question])
       end
 end

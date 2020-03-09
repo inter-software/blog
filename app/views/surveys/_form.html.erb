@@ -1,17 +1,28 @@
-<%= form_with(model: @survey, local: true) do |form| %>
+<%= form_for  @survey, local: true do |f| %>
 
   <div>
-    <%= form.label :survey_name %>
-    <%= form.text_field :survey_name, class: "form-control" %>
+    <%= f.label :survey_name %>
+    <%= f.text_field :survey_name, class: "form-control" %>
   </div>
 
   <p>
-    <%= form.label :survey_desc %><br>
-    <%= form.text_area :survey_desc, class: "form-control" %>
+    <%= f.label :survey_desc %><br>
+    <%= f.text_area :survey_desc, class: "form-control" %>
   </p>
 
   <p>
-    <%= form.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
+    <%= f.fields_for :questions do |q| %>
+      <div class="form-group">
+        <%= q.label :question %>
+        <%= q.text_field :question, class: 'form-control', placeholder: 'Add Question'%>
+        <%= link_to 'Add Question' %>
+      </div>
+      
+    <% end %>
+  </p>
+
+  <p>
+    <%= f.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
   </p>
 
 <% end %>

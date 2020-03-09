@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
 
-  before_action :set_question, only: %i[show index new create]
+  before_action :set_question, only: %i[show index new update destroy create]
 
   #GET   URI: /surveys/:survey_id/questions
   def index
@@ -35,8 +35,6 @@ class QuestionsController < ApplicationController
   end
 
   def update
-    @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.find(params[:id])
     respond_to do |format|
       if @question.update(question_params)
         format.html {redirect_to  survey_questions_path(@survey), notice: 'Questions was Success' }
@@ -49,8 +47,6 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @survey = Survey.find(params[:survey_id])
-    @question = @survey.questions.find(params[:id])
     @question.destroy
     respond_to do |format|
       format.html{redirect_to survey_questions_path(@survey), notice: 'Question was Success'}
