@@ -16,13 +16,14 @@
                                       POST   /users(.:format)                                                                         users/registrations#create
                            home_index GET    /home/index(.:format)                                                                    home#index
                         welcome_index GET    /welcome/index(.:format)                                                                 welcome#index
-     new_article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications/new(.:format)                    comments/publications#new
-    edit_article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications/edit(.:format)                   comments/publications#edit
-         article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#show
-                                      PATCH  /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#update
-                                      PUT    /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#update
-                                      DELETE /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#destroy
+         article_comment_publications GET    /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#index
                                       POST   /articles/:article_id/comments/:comment_id/publications(.:format)                        comments/publications#create
+      new_article_comment_publication GET    /articles/:article_id/comments/:comment_id/publications/new(.:format)                    comments/publications#new
+     edit_article_comment_publication GET    /articles/:article_id/comments/:comment_id/publications/:id/edit(.:format)               comments/publications#edit
+          article_comment_publication GET    /articles/:article_id/comments/:comment_id/publications/:id(.:format)                    comments/publications#show
+                                      PATCH  /articles/:article_id/comments/:comment_id/publications/:id(.:format)                    comments/publications#update
+                                      PUT    /articles/:article_id/comments/:comment_id/publications/:id(.:format)                    comments/publications#update
+                                      DELETE /articles/:article_id/comments/:comment_id/publications/:id(.:format)                    comments/publications#destroy
                      article_comments GET    /articles/:article_id/comments(.:format)                                                 comments#index
                                       POST   /articles/:article_id/comments(.:format)                                                 comments#create
                   new_article_comment GET    /articles/:article_id/comments/new(.:format)                                             comments#new
@@ -31,13 +32,14 @@
                                       PATCH  /articles/:article_id/comments/:id(.:format)                                             comments#update
                                       PUT    /articles/:article_id/comments/:id(.:format)                                             comments#update
                                       DELETE /articles/:article_id/comments/:id(.:format)                                             comments#destroy
-             new_article_publications GET    /articles/:article_id/publications/new(.:format)                                         articles/publications#new
-            edit_article_publications GET    /articles/:article_id/publications/edit(.:format)                                        articles/publications#edit
-                 article_publications GET    /articles/:article_id/publications(.:format)                                             articles/publications#show
-                                      PATCH  /articles/:article_id/publications(.:format)                                             articles/publications#update
-                                      PUT    /articles/:article_id/publications(.:format)                                             articles/publications#update
-                                      DELETE /articles/:article_id/publications(.:format)                                             articles/publications#destroy
+                 article_publications GET    /articles/:article_id/publications(.:format)                                             articles/publications#index
                                       POST   /articles/:article_id/publications(.:format)                                             articles/publications#create
+              new_article_publication GET    /articles/:article_id/publications/new(.:format)                                         articles/publications#new
+             edit_article_publication GET    /articles/:article_id/publications/:id/edit(.:format)                                    articles/publications#edit
+                  article_publication GET    /articles/:article_id/publications/:id(.:format)                                         articles/publications#show
+                                      PATCH  /articles/:article_id/publications/:id(.:format)                                         articles/publications#update
+                                      PUT    /articles/:article_id/publications/:id(.:format)                                         articles/publications#update
+                                      DELETE /articles/:article_id/publications/:id(.:format)                                         articles/publications#destroy
                              articles GET    /articles(.:format)                                                                      articles#index
                                       POST   /articles(.:format)                                                                      articles#create
                           new_article GET    /articles/new(.:format)                                                                  articles#new
@@ -70,6 +72,14 @@
                                       PATCH  /verifieds/:id(.:format)                                                                 verifieds#update
                                       PUT    /verifieds/:id(.:format)                                                                 verifieds#update
                                       DELETE /verifieds/:id(.:format)                                                                 verifieds#destroy
+       survey_question_answer_options GET    /surveys/:survey_id/questions/:question_id/answer_options(.:format)                      answer_options#index
+                                      POST   /surveys/:survey_id/questions/:question_id/answer_options(.:format)                      answer_options#create
+    new_survey_question_answer_option GET    /surveys/:survey_id/questions/:question_id/answer_options/new(.:format)                  answer_options#new
+   edit_survey_question_answer_option GET    /surveys/:survey_id/questions/:question_id/answer_options/:id/edit(.:format)             answer_options#edit
+        survey_question_answer_option GET    /surveys/:survey_id/questions/:question_id/answer_options/:id(.:format)                  answer_options#show
+                                      PATCH  /surveys/:survey_id/questions/:question_id/answer_options/:id(.:format)                  answer_options#update
+                                      PUT    /surveys/:survey_id/questions/:question_id/answer_options/:id(.:format)                  answer_options#update
+                                      DELETE /surveys/:survey_id/questions/:question_id/answer_options/:id(.:format)                  answer_options#destroy
                      survey_questions GET    /surveys/:survey_id/questions(.:format)                                                  questions#index
                                       POST   /surveys/:survey_id/questions(.:format)                                                  questions#create
                   new_survey_question GET    /surveys/:survey_id/questions/new(.:format)                                              questions#new

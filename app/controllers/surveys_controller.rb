@@ -2,25 +2,31 @@ class SurveysController < ApplicationController
 
   #before_action :set_survey, only: %i[show ]
 
+  before_action :authenticate_user!
+
   before_action :set_all_surveys, only:  :index
+
+  before_action :set_survey, only: %i[ show edit update destroy partial_show]
 
   def index; end
 
   def new
     @survey = Survey.new
+    @survey.questions.new
   end
 
   # surveys#edit
   # edit_surveys GET /surveys/edit
   def edit
-    @survey = Survey.find(params[:id])
   end
 
-  def show; end
+  def show
+
+  end
 
   def create
     @survey = Survey.new(survey_params)
-
+    @survey.questions.first
     respond_to do |format|
       if @survey.save
         flash[:msg] = 'It saved successfully'
@@ -35,8 +41,6 @@ class SurveysController < ApplicationController
   end
 
   def update
-    @survey = Survey.find(params[:id])
-
     if @survey.update(survey_params)
       redirect_to @survey
     else
@@ -45,9 +49,8 @@ class SurveysController < ApplicationController
   end
 
   def destroy
-    @survey = Survey.find(params[:id])
     @survey.destroy
-    redirect_to surveys_index_path(@survey)
+    redirect_to survey_path(@survey)
   end
 
   private
@@ -61,6 +64,7 @@ class SurveysController < ApplicationController
       end
 
       def survey_params
-        params.require(:survey).permit(:survey_name, :survey_desc)
+        params.require(:survey).permit(:survey_name, :survey_desc,
+                                       questions_attributes: [:id, :question, :_destroy])
       end
 end

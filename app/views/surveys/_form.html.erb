@@ -1,4 +1,4 @@
-<%= form_with(model: @surveys, local: true) do |form| %>
+<%= form_for  @survey, local: true do |form| %>
 
   <div>
     <%= form.label :survey_name %>
@@ -10,8 +10,17 @@
     <%= form.text_area :survey_desc, class: "form-control" %>
   </p>
 
+  <div class="form-group">
+    <h4>Add Questions: </h4>
+    <%= form.fields_for :questions do |question| %>
+      <%= render 'questions', form: question %>
+    <% end %>
+  </div>
+
+  <%= link_to_add_association 'Add Question', form, :questions %>
+
   <p>
-    <%= form.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>
+    <%= form.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
   </p>
 
 <% end %>

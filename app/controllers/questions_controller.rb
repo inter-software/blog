@@ -1,16 +1,20 @@
 class QuestionsController < ApplicationController
 
-  before_action :set_question, only: %i[show :edit :update destroy :index :new :create]
+  before_action :set_question, only: %i[show index new update destroy create]
 
+  #GET   URI: /surveys/:survey_id/questions
   def index
-    @questions = @survey.questions.all # List to all the questions to the survey (All Not)
+    @questions = @survey.questions.all# List to all the questions to the survey (All Not)
   end
 
   def new
     @question = Question.new
   end
 
+  # GET /surveys/:survey_id/questions/:id/edit
   def edit
+    @survey = Survey.find(params[:survey_id])
+    @question = @survey.questions.find(params[:id])
   end
 
   def show
@@ -18,11 +22,11 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    @survey.id = @question.id
+    @question.survey_id = @survey.id
     respond_to do |format|
       if @question.save
-        format.html {redirect_to survey_questions_path(@question), notice: 'Question was successfully created'}
-        format.json {render :show, location: @question, status: :created}
+        format.html {redirect_to survey_questions_path(@survey), notice: 'Question was successfully created'}
+        format.json {render :show, status: :created}
       else
         format.html{render :new}
         format.json{render json: @question, status: :unprocessable_entity}
@@ -33,7 +37,7 @@ class QuestionsController < ApplicationController
   def update
     respond_to do |format|
       if @question.update(question_params)
-        format.html {redirect_to survey_questions_path(@survey), notice: 'Questions was Success' }
+        format.html {redirect_to  survey_questions_path(@survey), notice: 'Questions was Success' }
         format.json {render :show, location: @question, status: :ok}
       else
         format.html{render :edit}
@@ -45,7 +49,7 @@ class QuestionsController < ApplicationController
   def destroy
     @question.destroy
     respond_to do |format|
-      format.html{redirect_to survey_questions_url(@survey), notice: 'Question was Success'}
+      format.html{redirect_to survey_questions_path(@survey), notice: 'Question was Success'}
       format.json {head :no_content }
     end
   end
@@ -53,7 +57,7 @@ class QuestionsController < ApplicationController
   private
 
   def set_question
-    @survey = Survey.find(params[:id]) # Recuperate  the survey
+    @survey = Survey.find(params[:survey_id]) # Recuperate  the survey
     @question = Question.find(params[:id]) if params[:id]#Recuperate the question, only if send's
   end
 

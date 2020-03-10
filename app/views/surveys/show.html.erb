@@ -1,0 +1,31 @@
+
+<div class="container">
+  <center>
+    <div class="card border-info mb-3" style="max-width: 30rem; margin-top: 100px;">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">
+              <p>
+                <strong>Survey Name: </strong>
+                <%= @survey.survey_name %>
+              </p>
+
+              <p>
+                <strong>Survey Description:</strong>
+                <%= @survey.survey_desc %>
+              </p>
+        </p>
+      </div>
+      <div class="card-footer bg-transparent border-info">
+        <%= link_to 'Edit', edit_survey_path(@survey), class: 'btn btn-outline-warning btn-sm' %> |
+        <%= link_to 'Back', surveys_path, class: 'btn btn-outline-success btn-sm'  %>
+      </div>
+    </div>
+  </center>
+</div>
+
+
+
+
+

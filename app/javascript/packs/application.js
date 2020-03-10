@@ -7,12 +7,11 @@ require("channels")
 require("jquery")
 
 
-
 global.toastr = require("toastr")
 
-import 'bootstrap'
-import '../stylesheets/application'
-
+import 'bootstrap';
+import '../stylesheets/application';
+import 'cocoon';
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()

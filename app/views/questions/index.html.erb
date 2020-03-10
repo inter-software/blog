@@ -3,19 +3,22 @@
   <table class="table table-bordered">
     <thead>
     <tr>
+      <th>ID</th>
       <th>Question</th>
-      <th>Survey Name</th>
+      <th>Survey name</th>
       <th colspan="3"></th>
     </tr>
     </thead>
     <tbody>
     <% @questions.each do |question| %>
       <tr>
-        <td><%= question.question %></td>
-        <td><%= question.survey.survey_name %></td>
 
+        <td><%= question.id %></td>
+        <td><%= question.question %></td>
+        <th><%= question.survey.survey_name %></th>
+        <th><%= question.created_at %></th>
         <td>
-          <%= link_to 'Edit', :class => 'btn btn-outline-warning btn-sm' %>
+          <%= link_to 'Edit', class: 'btn btn-outline-warning btn-sm' %>
         </td>
 
         <td>
@@ -23,6 +26,7 @@
                       method: :delete,
                       data: { confirm: 'Are you Sure?' },
                       :class => 'btn btn-outline-danger btn-sm'
+
           %>
         </td>
 
@@ -33,6 +37,6 @@
   <br>
 
 
-  <%= link_to 'New Verified', new_survey_questions_path(@survey), :class => 'btn btn-outline-primary btn-sm' %>
+  <%= link_to 'New Question', new_survey_question_path, class: 'btn btn-outline-primary btn-sm' %>
 
 </div>

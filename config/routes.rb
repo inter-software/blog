@@ -16,9 +16,9 @@ Rails.application.routes.draw do
 
   resources :articles do
     resources :comments do
-      resource :publications, module: :comments
+      resources :publications, module: :comments
     end
-    resource :publications, module: :articles
+    resources :publications, module: :articles
   end
 
   # resources :categories do
@@ -32,7 +32,11 @@ Rails.application.routes.draw do
 
 
   resources :surveys do
-    resources :questions
+
+    resources :questions do
+      resources :answer_options
+    end
+
   end
 
 

@@ -1,3 +1,4 @@
+
 <div class="container">
   <center>
     <div class="card border-info mb-3" style="max-width: 30rem; margin-top: 100px;">
@@ -6,19 +7,19 @@
         <h5 class="card-title"></h5>
         <p class="card-text">
         <p>
-          <strong>Survey Name: </strong>
+          <strong>Text: </strong>
           <%= @question.question%>
         </p>
 
         <p>
-          <strong>Survey Description:</strong>
-          <%= @question.survey.survey_name %>
+          <strong>Question:</strong>
+          <%= @question.question.question %>
         </p>
         </p>
       </div>
       <div class="card-footer bg-transparent border-info">
-        <%= link_to 'Edit', edit_survey_question_path(@survey), class: 'btn btn-outline-warning btn-sm' %> |
-        <%= link_to 'Back', survey_questions_path(@survey), class: 'btn btn-outline-success btn-sm'  %>
+        <%= link_to 'Edit', edit_survey_question_answer_option_path, class: 'btn btn-outline-warning btn-sm' %> |
+        <%= link_to 'Back', survey_question_answer_option_path, class: 'btn btn-outline-success btn-sm'  %>
       </div>
     </div>
   </center>

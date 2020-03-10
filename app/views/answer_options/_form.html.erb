@@ -1,19 +1,4 @@
-<%= form_with  model: @answer_options, local: true do |form| %>
-
-  <% if @answer_options.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@answer_options.errors.count, "error") %> prohibited
-        this article from being saved:
-      </h2>
-      <ul>
-        <% @answer_options.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_with(model: [@survey, @question, @answer_option], local: true) do |form| %>
 
   <div>
     <%= form.label :text %>
@@ -23,13 +8,13 @@
   <p>
     <%= form.label :question_id %><br>
     <%=
-      form.collection_select :question_id, Question.order(:question).all, :id, :question,
-                             class: "form-control",
-                             prompt: "Select Question"
+      form.collection_select :question_id, Question.all, :id, :question,
+                             prompt: "Select Question", class: "forml-control"
     %>
   </p>
   <p>
-    <%= form.submit 'Guardar', :class => 'btn btn-outline-primary btn-sm' %>
+    <%= form.submit 'Save', class: 'btn btn-outline-primary btn-sm'  %> |
+    <%= link_to 'Cancel', survey_question_answer_options_path(@question), class: 'btn btn-outline-secondary btn-sm' %>
   </p>
 
 
