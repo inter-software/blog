@@ -1,28 +1,26 @@
-<%= form_for  @survey, local: true do |f| %>
+<%= form_for  @survey, local: true do |form| %>
 
   <div>
-    <%= f.label :survey_name %>
-    <%= f.text_field :survey_name, class: "form-control" %>
+    <%= form.label :survey_name %>
+    <%= form.text_field :survey_name, class: "form-control" %>
   </div>
 
   <p>
-    <%= f.label :survey_desc %><br>
-    <%= f.text_area :survey_desc, class: "form-control" %>
+    <%= form.label :survey_desc %><br>
+    <%= form.text_area :survey_desc, class: "form-control" %>
   </p>
 
-  <p>
-    <%= f.fields_for :questions do |q| %>
-      <div class="form-group">
-        <%= q.label :question %>
-        <%= q.text_field :question, class: 'form-control', placeholder: 'Add Question'%>
-        <%= link_to 'Add Question' %>
-      </div>
-      
+  <div class="form-group">
+    <h4>Add Questions: </h4>
+    <%= form.fields_for :questions do |question| %>
+      <%= render 'questions', form: question %>
     <% end %>
-  </p>
+  </div>
+
+  <%= link_to_add_association 'Add Question', form, :questions %>
 
   <p>
-    <%= f.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
+    <%= form.submit 'Save', class: 'btn btn-outline-primary btn-sm' %>
   </p>
 
 <% end %>

@@ -5,13 +5,13 @@ require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
 require("jquery")
-require("cocoon")
+
 
 global.toastr = require("toastr")
 
-import 'bootstrap'
-import '../stylesheets/application'
-
+import 'bootstrap';
+import '../stylesheets/application';
+import 'cocoon';
 
 document.addEventListener("turbolinks:load", () => {
   $('[data-toggle="tooltip"]').tooltip()

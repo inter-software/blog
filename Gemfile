@@ -82,4 +82,4 @@ gem 'rubocop', '~> 0.80.0'
 
 gem 'factory_bot'
 
-gem 'cocoon', '~> 1.2', '>= 1.2.14'
+gem 'cocoon'

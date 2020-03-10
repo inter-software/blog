@@ -13,4 +13,6 @@ class Survey < ApplicationRecord
 
 
 
+
+
 end

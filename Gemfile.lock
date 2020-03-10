@@ -293,7 +293,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   carrierwave (~> 2.0, >= 2.0.2)
   chosen-rails
-  cocoon (~> 1.2, >= 1.2.14)
+  cocoon
   devise (~> 4.7, >= 4.7.1)
   factory_bot
   file_validators
