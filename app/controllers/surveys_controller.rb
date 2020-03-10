@@ -6,13 +6,13 @@ class SurveysController < ApplicationController
 
   before_action :set_all_surveys, only:  :index
 
-  before_action :set_survey, only: %i[ show edit update destroy partial_show]
+  before_action :set_survey, only: %i[ show edit update destroy]
 
   def index; end
 
   def new
     @survey = Survey.new
-    @survey.questions.new
+    @survey.questions.build
   end
 
   # surveys#edit
@@ -41,22 +41,28 @@ class SurveysController < ApplicationController
   end
 
   def update
-    if @survey.update(survey_params)
-      redirect_to @survey
-    else
-      redirect_to :edit
+    respond_to do |format|
+      if @survey.update(survey_params)
+        format.html{redirect_to survey_path(@survey), notice: 'Update was survey Successfully'}
+        format.json{render json: @survey}
+      else
+        format.html{render :edit}
+      end
     end
   end
 
   def destroy
     @survey.destroy
-    redirect_to survey_path(@survey)
+    respond_to do |format|
+      format.html{redirect_to survey_url, notice: 'Destroy was survey successfully'}
+      format.json{render json: @survey}
+    end
   end
 
   private
 
       def set_all_surveys
-        @surveys = Survey.all
+        @surveys = Survey.order('created_at ASC').all
       end
 
       def set_survey
@@ -65,6 +71,6 @@ class SurveysController < ApplicationController
 
       def survey_params
         params.require(:survey).permit(:survey_name, :survey_desc,
-                                       questions_attributes: [:id, :question, :_destroy])
+                                       questions_attributes:[:id, :question, :_destroy])
       end
 end

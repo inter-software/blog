@@ -15,6 +15,20 @@
                 <strong>Survey Description:</strong>
                 <%= @survey.survey_desc %>
               </p>
+
+              <p>
+
+                  <div class="list-group">
+                    <button type="button" class="list-group-item list-group-item-action active">
+                      <h5><b>Questions</b></h5>
+                    </button>
+                    <% for @question in @survey.questions %>
+                      <button type="button" class="list-group-item list-group-item-action">
+                        <%= @question.question %>
+                      </button>
+                    <% end %>
+                  </div>
+              </p>
         </p>
       </div>
       <div class="card-footer bg-transparent border-info">

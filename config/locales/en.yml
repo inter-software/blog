@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+  cocoon:
+    defaults:
+      add: "Add record"
+      remove: "Remove record"
+    questions:
+      add: "Add new task"
+      remove: "Remove old Question"

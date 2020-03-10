@@ -15,15 +15,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_151010) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "Articles_Categories", id: false, force: :cascade do |t|
-    t.bigint "Article_id", null: false
-    t.bigint "Category_id", null: false
-    t.bigint "article_id"
-    t.bigint "category_id"
-    t.index ["article_id"], name: "index_Articles_Categories_on_article_id"
-    t.index ["category_id"], name: "index_Articles_Categories_on_category_id"
-  end
-
   create_table "answer_options", force: :cascade do |t|
     t.text "text"
     t.bigint "question_id", null: false
@@ -79,6 +70,13 @@ ActiveRecord::Schema.define(version: 2020_03_03_151010) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "posts", id: :serial, force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "publications", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -132,8 +130,6 @@ ActiveRecord::Schema.define(version: 2020_03_03_151010) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  add_foreign_key "Articles_Categories", "articles"
-  add_foreign_key "Articles_Categories", "categories"
   add_foreign_key "answer_options", "questions"
   add_foreign_key "answer_users", "answer_options"
   add_foreign_key "answer_users", "surveys"
