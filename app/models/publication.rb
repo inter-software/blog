@@ -1,3 +1,3 @@
 class Publication < ApplicationRecord
-  belongs_to :published, polymorphic: true
+  has_many :comments, as: :commentable
 end

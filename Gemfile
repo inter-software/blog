@@ -83,3 +83,9 @@ gem 'rubocop', '~> 0.80.0'
 gem 'factory_bot'
 
 gem 'cocoon'
+
+gem 'ruby-graphviz'
+
+gem 'rails-erd', '~> 1.6'
+
+

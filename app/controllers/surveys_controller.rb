@@ -21,7 +21,6 @@ class SurveysController < ApplicationController
   end
 
   def show
-
   end
 
   def create

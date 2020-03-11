@@ -13,14 +13,19 @@
     <tbody>
     <% @surveys.each do |survey| %>
       <tr>
-        <td><%= link_to 'Question(' +survey.questions.count.to_s+')', survey_questions_path(survey), class: 'btn btn-info btn-sm' %></td>
+        <td>
+          <center>
+            <%= link_to 'Question(' +survey.questions.count.to_s+')', survey_questions_path(survey), class: 'btn btn-info btn-sm' %>
+          </center>
+        </td>
         <td><%= link_to survey.id, survey_path(survey) %></td>
         <td><%= survey.survey_name %></td>
         <td><%= survey.survey_desc %></td>
 
         <td>
+          <center>
           <div class="btn-group">
-            <button type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button type="button" class="btn btn-secondary btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Admin
             </button>
             <div class="dropdown-menu">
@@ -35,6 +40,7 @@
               </a>
             </div>
           </div>
+          </center>
         </td>
       </tr>
     <% end %>

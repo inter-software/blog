@@ -35,13 +35,11 @@
       Admin
     </a>
     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-      <%= link_to 'Articles', new_article_path, :class => 'dropdown-item' %>
-
-
       <div class="dropdown-divider">Verified</div>
-
-      <%= link_to 'Verified Articles', new_verified_path, :class => 'dropdown-item' %>
-      
+      <%= link_to 'Surveys', surveys_path, :class => 'dropdown-item' %>
+      <div class="dropdown-divider">Verified</div>
+      <%= link_to 'Articles', articles_path, :class => 'dropdown-item' %>
+      <%= link_to 'Verified Articles', verifieds_path, :class => 'dropdown-item' %>
     </div>
   </li>
         

@@ -1,0 +1,35 @@
+
+<div class="container">
+  <center>
+    <div class="card border-info mb-3" style="max-width: 30rem; margin-top: 100px;">
+      <div class="card-header">Header</div>
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">
+        <p>
+          <strong>Text: </strong>
+          <%= @publication.name %>
+        </p>
+
+        <p>
+          <strong>Question:</strong>
+          <%= @publication.desc %>
+        </p>
+
+        <p>
+
+          <%= render 'comments/comment', locals: {commentable: @publication} %>
+
+          <%= render 'comments/form', locals: {commentable: @publication} %>
+
+
+        </p>
+        </p>
+      </div>
+      <div class="card-footer bg-transparent border-info">
+        <%= link_to 'Edit', edit_publication_path, class: 'btn btn-outline-warning btn-sm' %> |
+        <%= link_to 'Back', publications_path, class: 'btn btn-outline-success btn-sm'  %>
+      </div>
+    </div>
+  </center>
+</div>
