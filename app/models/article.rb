@@ -3,6 +3,7 @@
 class Article < ApplicationRecord # rubocop:todo Style/Documentation
   # dependent: :destroy, actual como una eliminacion en cascada,,
   # en donde a  eliminar el padre (Article) se elimina de igual forma el hijo (Comment)
+
   has_many :comments, as: :commentable
 
   # has_and_belongs_to_many :categories #Relacion Many-to-Many a categorias

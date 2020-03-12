@@ -15,11 +15,11 @@ Rails.application.routes.draw do
   # get 'categories/:category_id', to: 'articles#index', as: :category
 
   resources :articles do
-    resources :comments
+    resources :comments, module: :articles
   end
 
   resources :publications do
-    resources :comments
+    resources :comments, module: :publications
   end
 
   # resources :categories do

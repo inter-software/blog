@@ -1,33 +1,16 @@
-<%= form_with model: [ @article, @article.comments.build ], local: true do |form| %>
- 
- <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">    
-        <%= form.label :commenter %>
-        <%= form.text_field :commenter, :class => 'form-control' %>
-      </th> 
-
-    </tr>
-
-    <tr>
-      <th scope="col">
-        <%= form.label :body %>
-        <%= form.text_area :body, :class => 'form-control' %>
-      </th>
-    </tr>
-    
-    <tr>
-      <th><br>
-          <%= form.submit "Save Comment", :class => 'btn btn-outline-primary btn-sm' %>
-      </th>
-    </tr>
-
-  </thead>
- 
-</table>
-   
-
+<div class="container">
+<%= form_with model: [commentable, Comment.new], local: true do |form| %>
+  <%= form.label :commenter %>
+  <%= form.text_field :commenter, :class => 'form-control' %>
+  <%= form.label :body %>
+  <%= form.text_area :body, :class => 'form-control' %>
+  <%= form.label :article_id %><br>
+  <%=
+    form.collection_select :article_id, Article.order(:title).all, :id, :title,
+                           class: "form-control",
+                           prompt: "Select Article" %>
+  <br><br>
+  <%= form.submit "Save Comment", class: 'btn btn-outline-primary btn-sm' %>
 
 <% end %>
-
+</div>

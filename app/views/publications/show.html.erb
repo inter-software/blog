@@ -18,7 +18,8 @@
 
         <p>
 
-
+          <%= render partial: 'comments/comments', locals: {commentable: @publication} %>
+          <%= render partial: 'comments/form', locals: {commentable: @publication}%>
         </p>
         </p>
       </div>
