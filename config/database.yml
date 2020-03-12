@@ -24,8 +24,8 @@ test:
 
 dev:
   <<: *default
-  username: root
-  password:
+  username: postgres
+  password: pguser
   host: localhost
   database: gap_blog_development
 
