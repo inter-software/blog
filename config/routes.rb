@@ -22,6 +22,11 @@ Rails.application.routes.draw do
     resources :comments, module: :publications
   end
 
+  resources :users do
+    resources :emergencies, controller: :contacts, type: 'Emergency'
+    resources :friends, controller: :contacts, type: 'Friend'
+  end
+
   # resources :categories do
   #  resources :articles
   # end

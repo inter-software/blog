@@ -4,6 +4,8 @@ class PublicationsController < ApplicationController
 
   before_action :set_publication, only: %i[show edit update destroy]
 
+  before_filter :scopes_result
+
   def index
     @publications = Publication.order('created_at DESC').all
   end
@@ -52,6 +54,12 @@ class PublicationsController < ApplicationController
   end
 
   private
+
+  def scopes_result
+    @publication = Publication.with_long_name
+    @publication = Publication.with_long_name2(10)
+    @publication = Publication.date_today
+  end
 
   def set_publication
     @publication = Publication.find(params[:id])
