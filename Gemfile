@@ -70,7 +70,7 @@ gem 'pg'
 
 gem 'chosen-rails'
 
-gem 'carrierwave', '~> 2.0', '>= 2.0.2'
+gem 'carrierwave', '~> 2.1'
 
 gem 'mini_magick'
 
